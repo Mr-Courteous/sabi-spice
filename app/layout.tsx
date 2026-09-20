@@ -13,6 +13,8 @@ function absUrl(url: string) {
   return `${base.replace(/\/+$/, "")}${url.startsWith("/") ? url : `/${url}`}`;
 }
 
+export const viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" as const };
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(absUrl("/")),

@@ -16,7 +16,7 @@ export default function AdminMobileWrapper({ children, user }: AdminMobileWrappe
       <AdminSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <AdminTopbar user={user} onToggleSidebar={() => setSidebarOpen((v) => !v)} />
-        <main className="flex-1 overflow-y-auto p-4 lg:p-8">
+        <main className="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-8">
           {children}
         </main>
       </div>

@@ -20,8 +20,8 @@ export function PageHeroSkeleton() {
     <div className="bg-sabi-black py-24 animate-pulse">
       <div className="container-max px-4 sm:px-6 lg:px-8 space-y-4">
         <div className="h-3 w-24 bg-white/10 rounded" />
-        <div className="h-10 w-96 bg-white/10 rounded" />
-        <div className="h-4 w-64 bg-white/10 rounded" />
+        <div className="h-10 w-96 max-w-full bg-white/10 rounded" />
+        <div className="h-4 w-64 max-w-full bg-white/10 rounded" />
       </div>
     </div>
   );
