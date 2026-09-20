@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-sabi-light text-sabi-black font-sans;
+    background-image: radial-gradient(rgba(30,43,20,.09) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 { @apply font-serif tracking-tight; }
+}
+
+@layer components {
+  /* Sticker buttons: thick ink border + hard offset shadow */
+  .btn-saffron, .btn-outline, .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-bold font-sans text-sm rounded-full
+           border-2 border-sabi-black shadow-[3px_3px_0_0_#1E2B14]
+           transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#1E2B14]
+           active:translate-y-0.5 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-saffron { @apply bg-saffron text-white; }
+  .btn-outline { @apply bg-white text-sabi-black; }
+  .btn-dark    { @apply bg-sabi-black text-white; }
+
+  .section-padding { @apply px-4 sm:px-6 lg:px-8 py-14 lg:py-20; }
+  .container-max { @apply max-w-6xl mx-auto; }
+  .gold-line { @apply h-0.5 bg-sabi-black; }
+
+  /* Market-awning stripe (replaces the old gold shimmer bar) */
+  .saffron-shimmer {
+    height: 10px !important;
+    background: repeating-linear-gradient(90deg, #C93F14 0 22px, #FFF6E3 22px 44px);
+    animation: none;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-sabi-black/20 bg-white rounded-xl font-sans text-sm
+           focus:outline-none focus:border-sabi-black transition-colors placeholder:text-sabi-grey/60;
+  }
+  .card-product {
+    @apply bg-white border-2 border-sabi-black rounded-2xl overflow-hidden shadow-[4px_4px_0_0_#1E2B14]
+           transition-all duration-150 hover:-translate-y-1 hover:shadow-[7px_7px_0_0_#1E2B14];
+  }
+  .admin-sidebar-link { @apply flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-white/10 hover:text-saffron-light; }
+  .admin-sidebar-link.active { @apply bg-white/10 text-saffron-light border-r-2 border-saffron-light; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.animate-fadeInUp { animation: fadeInUp .5s ease-out forwards; }
+
+@media print { body { background: white !important; } @page { margin: 15mm; } }
