@@ -44,25 +44,25 @@ export async function sendOrderConfirmationEmail(order: {
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
         <!-- Gold top bar -->
-        <tr><td height="4" style="background:linear-gradient(90deg,#8A5C1B,#F4B93A,#C93F14,#F4B93A,#8A5C1B);"></td></tr>
+        <tr><td height="4" style="background:linear-gradient(90deg,#8F6A22,#D9AE56,#B8892F,#D9AE56,#8F6A22);"></td></tr>
 
         <!-- Header -->
         <tr>
           <td style="background:#14260A;padding:32px 40px;text-align:center;">
             <p style="margin:0;font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#fff;letter-spacing:4px;">SABI SPICE</p>
-            <p style="margin:6px 0 0;font-size:11px;letter-spacing:6px;color:#C93F14;text-transform:uppercase;">African Food &amp; Spices</p>
+            <p style="margin:6px 0 0;font-size:11px;letter-spacing:6px;color:#B8892F;text-transform:uppercase;">African Food &amp; Spices</p>
           </td>
         </tr>
 
         <!-- Body -->
         <tr>
           <td style="background:#ffffff;padding:40px;">
-            <p style="margin:0 0 8px;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C93F14;">Order Confirmed</p>
+            <p style="margin:0 0 8px;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#B8892F;">Order Confirmed</p>
             <h1 style="margin:0 0 20px;font-family:Georgia,serif;font-size:30px;color:#14260A;">Thank you, ${order.customerName.split(" ")[0]}!</h1>
             <p style="color:#5F6B55;line-height:1.6;margin:0 0 24px;">Your order has been received and payment confirmed. We'll begin preparing your order right away.</p>
 
             <!-- Order number box -->
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-left:3px solid #C93F14;margin-bottom:32px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-left:3px solid #B8892F;margin-bottom:32px;">
               <tr>
                 <td style="padding:16px 20px;">
                   <p style="margin:0;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#5F6B55;">Order Number</p>
@@ -81,7 +81,7 @@ export async function sendOrderConfirmationEmail(order: {
               ${itemsHtml}
               <tr>
                 <td style="padding:16px 0 0;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#14260A;">Total Paid</td>
-                <td style="padding:16px 0 0;text-align:right;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#C93F14;">${formatPrice(order.total)}</td>
+                <td style="padding:16px 0 0;text-align:right;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#B8892F;">${formatPrice(order.total)}</td>
               </tr>
             </table>
 
@@ -105,7 +105,7 @@ export async function sendOrderConfirmationEmail(order: {
               ].map(([n, title, desc]) => `
               <tr>
                 <td width="36" valign="top" style="padding:0 12px 16px 0;">
-                  <div style="width:28px;height:28px;background:#C93F14;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;color:#14260A;font-size:13px;text-align:center;line-height:28px;">${n}</div>
+                  <div style="width:28px;height:28px;background:#B8892F;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;color:#14260A;font-size:13px;text-align:center;line-height:28px;">${n}</div>
                 </td>
                 <td valign="top" style="padding:0 0 16px;">
                   <p style="margin:0 0 2px;font-weight:600;color:#14260A;font-size:14px;">${title}</p>
@@ -126,7 +126,7 @@ export async function sendOrderConfirmationEmail(order: {
             <p style="margin:0;font-size:11px;color:#5F6B55;letter-spacing:2px;">© ${new Date().getFullYear()} SABI SPICE · Made with ✦ in the USA</p>
           </td>
         </tr>
-        <tr><td height="4" style="background:linear-gradient(90deg,#8A5C1B,#F4B93A,#C93F14,#F4B93A,#8A5C1B);"></td></tr>
+        <tr><td height="4" style="background:linear-gradient(90deg,#8F6A22,#D9AE56,#B8892F,#D9AE56,#8F6A22);"></td></tr>
 
       </table>
     </td></tr>
@@ -202,19 +202,19 @@ export async function sendOrderStatusUpdateEmail(order: {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;padding:40px 20px;">
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
-        <tr><td height="4" style="background:linear-gradient(90deg,#8A5C1B,#F4B93A,#C93F14,#F4B93A,#8A5C1B);"></td></tr>
+        <tr><td height="4" style="background:linear-gradient(90deg,#8F6A22,#D9AE56,#B8892F,#D9AE56,#8F6A22);"></td></tr>
         <tr>
           <td style="background:#14260A;padding:32px 40px;text-align:center;">
             <p style="margin:0;font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#fff;letter-spacing:4px;">SABI SPICE</p>
-            <p style="margin:6px 0 0;font-size:11px;letter-spacing:6px;color:#C93F14;text-transform:uppercase;">African Food &amp; Spices</p>
+            <p style="margin:6px 0 0;font-size:11px;letter-spacing:6px;color:#B8892F;text-transform:uppercase;">African Food &amp; Spices</p>
           </td>
         </tr>
         <tr>
           <td style="background:#ffffff;padding:40px;">
-            <p style="margin:0 0 8px;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#C93F14;">${copy.subject}</p>
+            <p style="margin:0 0 8px;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#B8892F;">${copy.subject}</p>
             <h1 style="margin:0 0 20px;font-family:Georgia,serif;font-size:28px;color:#14260A;">${copy.heading}, ${order.customerName.split(" ")[0]}</h1>
             <p style="color:#5F6B55;line-height:1.6;margin:0 0 24px;">${copy.body}</p>
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-left:3px solid #C93F14;margin-bottom:8px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7EE;border-left:3px solid #B8892F;margin-bottom:8px;">
               <tr>
                 <td style="padding:16px 20px;">
                   <p style="margin:0;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#5F6B55;">Order Number</p>
@@ -222,7 +222,7 @@ export async function sendOrderStatusUpdateEmail(order: {
                 </td>
                 <td style="padding:16px 20px;text-align:right;">
                   <p style="margin:0;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#5F6B55;">Status</p>
-                  <p style="margin:4px 0 0;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#C93F14;">${order.status}</p>
+                  <p style="margin:4px 0 0;font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#B8892F;">${order.status}</p>
                 </td>
               </tr>
             </table>
@@ -236,7 +236,7 @@ export async function sendOrderStatusUpdateEmail(order: {
             <p style="margin:0;font-size:11px;color:#5F6B55;letter-spacing:2px;">© ${new Date().getFullYear()} SABI SPICE · Made with ✦ in the USA</p>
           </td>
         </tr>
-        <tr><td height="4" style="background:linear-gradient(90deg,#8A5C1B,#F4B93A,#C93F14,#F4B93A,#8A5C1B);"></td></tr>
+        <tr><td height="4" style="background:linear-gradient(90deg,#8F6A22,#D9AE56,#B8892F,#D9AE56,#8F6A22);"></td></tr>
       </table>
     </td></tr>
   </table>
@@ -269,7 +269,7 @@ export async function sendContactNotificationEmail(data: {
   const html = `
 <div style="font-family:Arial,sans-serif;max-width:500px;margin:0 auto;">
   <div style="background:#14260A;padding:20px;text-align:center;">
-    <p style="margin:0;color:#C93F14;font-size:18px;font-weight:bold;letter-spacing:3px;">SABI SPICE</p>
+    <p style="margin:0;color:#B8892F;font-size:18px;font-weight:bold;letter-spacing:3px;">SABI SPICE</p>
     <p style="margin:4px 0 0;color:#5F6B55;font-size:11px;letter-spacing:2px;">NEW CONTACT MESSAGE</p>
   </div>
   <div style="background:#fff;padding:28px;border:1px solid #f0f0f0;">
@@ -285,7 +285,7 @@ export async function sendContactNotificationEmail(data: {
         <td style="padding:8px 0;border-bottom:1px solid #f8f8f8;color:#14260A;font-size:14px;">${v}</td>
       </tr>`).join("")}
     </table>
-    <div style="margin-top:20px;padding:16px;background:#FBF7EE;border-left:3px solid #C93F14;">
+    <div style="margin-top:20px;padding:16px;background:#FBF7EE;border-left:3px solid #B8892F;">
       <p style="margin:0;color:#14260A;line-height:1.6;font-size:14px;">${data.message}</p>
     </div>
     <p style="margin:16px 0 0;font-size:12px;color:#5F6B55;">Reply directly to this email to respond to ${data.name}.</p>
@@ -317,11 +317,11 @@ export async function sendCateringEmails(r: {
     .map(([l, v]) => `<tr><td style="padding:8px 0;border-bottom:1px solid #f3efe6;width:90px;color:#5F6B55;font-size:12px;text-transform:uppercase;letter-spacing:1px;">${l}</td><td style="padding:8px 0;border-bottom:1px solid #f3efe6;color:#14260A;font-size:14px;">${esc(v)}</td></tr>`).join("");
   const wrap = (title: string, intro: string) => `
 <div style="font-family:Arial,sans-serif;max-width:520px;margin:0 auto;">
-  <div style="background:#284912;padding:20px;text-align:center;"><p style="margin:0;color:#F4B93A;font-size:20px;font-weight:bold;letter-spacing:3px;">SABI SPICE</p><p style="margin:4px 0 0;color:#ffffffb3;font-size:11px;letter-spacing:2px;">${title}</p></div>
+  <div style="background:#284912;padding:20px;text-align:center;"><p style="margin:0;color:#D9AE56;font-size:20px;font-weight:bold;letter-spacing:3px;">SABI SPICE</p><p style="margin:4px 0 0;color:#ffffffb3;font-size:11px;letter-spacing:2px;">${title}</p></div>
   <div style="background:#fff;padding:28px;border:1px solid #f3efe6;">
     <p style="margin:0 0 16px;color:#14260A;line-height:1.6;">${intro}</p>
     <table width="100%" cellpadding="0" cellspacing="0">${rows}</table>
-    ${r.message ? `<div style="margin-top:20px;padding:16px;background:#FBF7EE;border-left:3px solid #C93F14;"><p style="margin:0;color:#14260A;line-height:1.6;font-size:14px;white-space:pre-wrap;">${esc(r.message)}</p></div>` : ""}
+    ${r.message ? `<div style="margin-top:20px;padding:16px;background:#FBF7EE;border-left:3px solid #B8892F;"><p style="margin:0;color:#14260A;line-height:1.6;font-size:14px;white-space:pre-wrap;">${esc(r.message)}</p></div>` : ""}
   </div>
 </div>`;
   const adminEmail = process.env.ADMIN_EMAIL || "admin@sabispice.com";

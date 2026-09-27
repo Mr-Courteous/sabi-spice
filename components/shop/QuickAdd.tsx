@@ -17,7 +17,7 @@ export default function QuickAdd({ productId, inStock = true }: { productId: str
   }
   return (
     <button onClick={add} disabled={busy || !inStock} aria-label="Add to order" title={inStock ? "Add to order" : "Sold out"}
-      className="w-9 h-9 flex-shrink-0 rounded-full bg-saffron-light border-2 border-sabi-black text-sabi-black font-bold text-lg leading-none shadow-[2px_2px_0_0_#1E2B14] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none disabled:opacity-40 transition-all">
+      className="w-9 h-9 flex-shrink-0 rounded-full bg-saffron-light border-2 border-sabi-black text-sabi-black font-bold text-lg leading-none shadow-[2px_2px_0_0_#16321C] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none disabled:opacity-40 transition-all">
       {busy ? "…" : "+"}
     </button>
   );

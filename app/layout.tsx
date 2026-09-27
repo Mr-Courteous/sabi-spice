@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
     other: {
-      "theme-color": "#C93F14",
+      "theme-color": "#B8892F",
       "apple-mobile-web-app-capable": "yes",
     },
     openGraph: {
@@ -66,8 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Toaster
             position="top-right"
             toastOptions={{
-              style: { background: "#24501A", color: "#fff", borderLeft: "3px solid #C93F14" },
-              success: { iconTheme: { primary: "#C93F14", secondary: "#24501A" } },
+              style: { background: "#1E4023", color: "#fff", borderLeft: "3px solid #B8892F" },
+              success: { iconTheme: { primary: "#B8892F", secondary: "#1E4023" } },
             }}
           />
         </SessionProviderWrapper>

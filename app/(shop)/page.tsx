@@ -35,7 +35,7 @@ export default async function HomePage() {
         </div>
 
         <div className="relative mx-auto w-full max-w-sm rotate-2">
-          <div className="bg-white border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#1E2B14] sm:shadow-[8px_8px_0_0_#1E2B14] p-4 sm:p-6">
+          <div className="bg-white border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#16321C] sm:shadow-[8px_8px_0_0_#16321C] p-4 sm:p-6">
             <div className="flex items-center gap-3 border-b-2 border-dashed border-sabi-black/30 pb-4 mb-4">
               <Image src="/sabi-logo.png" alt="Sabi Spice" width={48} height={48} className="rounded-full border-2 border-sabi-black" />
               <div><p className="font-serif font-extrabold text-lg leading-none">Today&apos;s menu</p><p className="text-xs text-sabi-grey">Fresh from the Sabi kitchen</p></div>
@@ -47,7 +47,7 @@ export default async function HomePage() {
             </ul>
             <p className="mt-5 text-center text-xs font-bold tracking-widest text-saffron">★ MADE FRESH ★ ORDER ONLINE ★</p>
           </div>
-          <span className="absolute -top-4 -right-1 sm:-top-5 sm:-right-4 bg-saffron text-white font-extrabold text-xs sm:text-sm rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-center leading-tight border-2 border-sabi-black rotate-12 shadow-[3px_3px_0_0_#1E2B14]">Free<br />pickup</span>
+          <span className="absolute -top-4 -right-1 sm:-top-5 sm:-right-4 bg-saffron text-white font-extrabold text-xs sm:text-sm rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-center leading-tight border-2 border-sabi-black rotate-12 shadow-[3px_3px_0_0_#16321C]">Free<br />pickup</span>
         </div>
       </section>
 
@@ -78,7 +78,7 @@ export default async function HomePage() {
       {/* MENU BOARD */}
       {products.length > 0 && (
         <section className="px-3 min-[360px]:px-4 sm:px-6 lg:px-8 pb-16">
-          <div className="max-w-6xl mx-auto bg-sabi-leaf text-white border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#1E2B14] sm:shadow-[8px_8px_0_0_#1E2B14] p-4 sm:p-10">
+          <div className="max-w-6xl mx-auto bg-sabi-leaf text-white border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#16321C] sm:shadow-[8px_8px_0_0_#16321C] p-4 sm:p-10">
             <div className="flex items-end justify-between mb-6">
               <h2 className="font-serif font-extrabold text-3xl lg:text-4xl">On the menu</h2>
               <Link href="/products" className="text-saffron-light text-sm font-bold hover:underline">Full menu →</Link>
@@ -102,7 +102,7 @@ export default async function HomePage() {
 
       {/* CATERING BANNER */}
       <section className="px-3 min-[360px]:px-4 sm:px-6 lg:px-8 pb-16">
-        <div className="max-w-6xl mx-auto bg-saffron-light border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#1E2B14] sm:shadow-[8px_8px_0_0_#1E2B14] p-5 sm:p-12 grid lg:grid-cols-2 gap-8 items-center">
+        <div className="max-w-6xl mx-auto bg-saffron-light border-2 border-sabi-black rounded-3xl shadow-[5px_5px_0_0_#16321C] sm:shadow-[8px_8px_0_0_#16321C] p-5 sm:p-12 grid lg:grid-cols-2 gap-8 items-center">
           <div>
             <p className="font-script text-saffron-dark text-4xl leading-none mb-2">Feeding a crowd?</p>
             <h2 className="font-serif font-extrabold text-4xl lg:text-5xl leading-tight">Leave the party food to us.</h2>
@@ -125,7 +125,7 @@ export default async function HomePage() {
             <div className="grid md:grid-cols-3 gap-6">
               {reviews.map((t: any) => (
                 <figure key={t.id}>
-                  <blockquote className="bg-white border-2 border-sabi-black rounded-2xl rounded-bl-none p-6 text-sm leading-relaxed shadow-[4px_4px_0_0_#1E2B14]">
+                  <blockquote className="bg-white border-2 border-sabi-black rounded-2xl rounded-bl-none p-6 text-sm leading-relaxed shadow-[4px_4px_0_0_#16321C]">
                     <p className="text-saffron mb-2">{"★".repeat(t.rating)}</p>“{t.content}”
                   </blockquote>
                   <figcaption className="mt-3 ml-2 font-bold text-sm">— {t.authorName}</figcaption>

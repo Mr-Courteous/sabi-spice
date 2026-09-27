@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       {/* Floating pill navigation */}
       <header className="fixed top-2 sm:top-3 inset-x-0 z-50 px-2 min-[360px]:px-3">
-        <div className="mx-auto max-w-5xl flex items-center justify-between gap-2 bg-white border-2 border-sabi-black rounded-full pl-2 sm:pl-3 pr-1.5 sm:pr-2 py-1 sm:py-1.5 shadow-[3px_3px_0_0_#1E2B14]">
+        <div className="mx-auto max-w-5xl flex items-center justify-between gap-2 bg-white border-2 border-sabi-black rounded-full pl-2 sm:pl-3 pr-1.5 sm:pr-2 py-1 sm:py-1.5 shadow-[3px_3px_0_0_#16321C]">
           <Logo size="sm" />
           <nav className="hidden md:flex items-center gap-1">
             {links.map((l) => (
@@ -59,7 +59,7 @@ export default function Navbar() {
                   {(session.user?.name || session.user?.email || "U")[0].toUpperCase()}
                 </button>
                 {open && (
-                  <div className="absolute right-0 top-11 w-44 max-w-[calc(100vw-1.5rem)] bg-white border-2 border-sabi-black rounded-2xl shadow-[4px_4px_0_0_#1E2B14] overflow-hidden text-sm font-semibold">
+                  <div className="absolute right-0 top-11 w-44 max-w-[calc(100vw-1.5rem)] bg-white border-2 border-sabi-black rounded-2xl shadow-[4px_4px_0_0_#16321C] overflow-hidden text-sm font-semibold">
                     {isAdmin && <Link href="/admin" className="block px-4 py-3 hover:bg-saffron-muted">⚙ Admin</Link>}
                     <Link href="/account/orders" className="block px-4 py-3 hover:bg-saffron-muted">📦 My orders</Link>
                     <button onClick={() => signOut({ callbackUrl: "/" })} className="block w-full text-left px-4 py-3 text-saffron hover:bg-saffron-muted border-t border-sabi-black/10">↩ Sign out</button>

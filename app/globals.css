@@ -23,8 +23,8 @@
   /* Sticker buttons: thick ink border + hard offset shadow */
   .btn-saffron, .btn-outline, .btn-dark {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-bold font-sans text-sm rounded-full
-           border-2 border-sabi-black shadow-[3px_3px_0_0_#1E2B14]
-           transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#1E2B14]
+           border-2 border-sabi-black shadow-[3px_3px_0_0_#16321C]
+           transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#16321C]
            active:translate-y-0.5 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed;
   }
   .btn-saffron { @apply bg-saffron text-white; }
@@ -38,7 +38,7 @@
   /* Market-awning stripe (replaces the old gold shimmer bar) */
   .saffron-shimmer {
     height: 10px !important;
-    background: repeating-linear-gradient(90deg, #C93F14 0 22px, #FFF6E3 22px 44px);
+    background: repeating-linear-gradient(90deg, #B8892F 0 22px, #FBF6EA 22px 44px);
     animation: none;
   }
 
@@ -47,8 +47,8 @@
            focus:outline-none focus:border-sabi-black transition-colors placeholder:text-sabi-grey/60;
   }
   .card-product {
-    @apply bg-white border-2 border-sabi-black rounded-2xl overflow-hidden shadow-[4px_4px_0_0_#1E2B14]
-           transition-all duration-150 hover:-translate-y-1 hover:shadow-[7px_7px_0_0_#1E2B14];
+    @apply bg-white border-2 border-sabi-black rounded-2xl overflow-hidden shadow-[4px_4px_0_0_#16321C]
+           transition-all duration-150 hover:-translate-y-1 hover:shadow-[7px_7px_0_0_#16321C];
   }
   .admin-sidebar-link { @apply flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-white/10 hover:text-saffron-light; }
   .admin-sidebar-link.active { @apply bg-white/10 text-saffron-light border-r-2 border-saffron-light; }
