@@ -23,7 +23,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const refresh = async () => {
-      try { const r = await fetch("/api/cart/count"); if (r.ok) setCount((await r.json()).count || 0); } catch {}
+      try { const r = await fetch("/api/cart/count"); if (r.ok) setCount((await r.json()).count || 0); } catch { }
     };
     (window as any).__refreshCartCount = refresh;
     refresh();

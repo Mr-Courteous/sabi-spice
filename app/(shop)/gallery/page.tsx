@@ -43,11 +43,10 @@ export default async function GalleryPage() {
             {CATEGORIES.map((cat, i) => (
               <button
                 key={cat}
-                className={`whitespace-nowrap px-5 py-2 text-xs tracking-widest uppercase font-sans transition-colors ${
-                  i === 0
+                className={`whitespace-nowrap px-5 py-2 text-xs tracking-widest uppercase font-sans transition-colors ${i === 0
                     ? "bg-sabi-black text-white"
                     : "text-sabi-grey hover:text-saffron"
-                }`}
+                  }`}
               >
                 {cat}
               </button>

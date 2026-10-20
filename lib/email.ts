@@ -99,10 +99,10 @@ export async function sendOrderConfirmationEmail(order: {
             <p style="margin:0 0 16px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#5F6B55;">What Happens Next</p>
             <table width="100%" cellpadding="0" cellspacing="0">
               ${[
-                ["1", "Order Processing", "We'll prepare your order fresh and let you know when it's ready."],
-                ["2", "Dispatch", "Your order will be handed to our courier and you'll receive a tracking number."],
-                ["3", "Delivery", "We'll email you as soon as your order is ready for pickup or on its way."],
-              ].map(([n, title, desc]) => `
+      ["1", "Order Processing", "We'll prepare your order fresh and let you know when it's ready."],
+      ["2", "Dispatch", "Your order will be handed to our courier and you'll receive a tracking number."],
+      ["3", "Delivery", "We'll email you as soon as your order is ready for pickup or on its way."],
+    ].map(([n, title, desc]) => `
               <tr>
                 <td width="36" valign="top" style="padding:0 12px 16px 0;">
                   <div style="width:28px;height:28px;background:#B8892F;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;color:#14260A;font-size:13px;text-align:center;line-height:28px;">${n}</div>
@@ -275,11 +275,11 @@ export async function sendContactNotificationEmail(data: {
   <div style="background:#fff;padding:28px;border:1px solid #f0f0f0;">
     <table width="100%" cellpadding="0" cellspacing="0">
       ${[
-        ["From", data.name],
-        ["Email", data.email],
-        ["Phone", data.phone || "—"],
-        ["Subject", data.subject || "—"],
-      ].map(([l, v]) => `
+      ["From", data.name],
+      ["Email", data.email],
+      ["Phone", data.phone || "—"],
+      ["Subject", data.subject || "—"],
+    ].map(([l, v]) => `
       <tr>
         <td style="padding:8px 0;border-bottom:1px solid #f8f8f8;width:90px;color:#5F6B55;font-size:12px;text-transform:uppercase;letter-spacing:1px;">${l}</td>
         <td style="padding:8px 0;border-bottom:1px solid #f8f8f8;color:#14260A;font-size:14px;">${v}</td>

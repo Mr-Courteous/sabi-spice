@@ -34,11 +34,10 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
           const isActive = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
           return (
             <Link key={item.href} href={item.href} onClick={onClose}
-              className={`flex items-center gap-3 px-5 py-3 text-sm transition-colors duration-150 ${
-                isActive
+              className={`flex items-center gap-3 px-5 py-3 text-sm transition-colors duration-150 ${isActive
                   ? "bg-saffron/15 text-saffron border-r-2 border-saffron"
                   : "text-gray-400 hover:bg-white/5 hover:text-white"
-              }`}
+                }`}
             >
               <span className="text-base w-5 text-center">{item.icon}</span>
               <span className="font-sans">{item.label}</span>
