@@ -5,152 +5,71 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
-
+  * { box-sizing: border-box; }
   body {
-    @apply bg-white text-sabi-black font-sans;
-    background-image: radial-gradient(rgba(22, 50, 28, .04) 1px, transparent 1px);
-    background-size: 22px 22px;
+    @apply bg-sabi-light text-sabi-black font-sans;
+    background-image: radial-gradient(rgba(16, 24, 64, 0.035) 1px, transparent 1px);
+    background-size: 24px 24px;
     -webkit-font-smoothing: antialiased;
     min-width: 250px;
     overflow-x: clip;
     overflow-wrap: break-word;
   }
-
-  img,
-  svg,
-  video {
-    max-width: 100%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-serif tracking-tight;
-  }
+  img, svg, video { max-width: 100%; }
+  h1, h2, h3, h4, h5 { @apply font-serif tracking-tight text-sabi-black; }
 }
 
 @layer components {
-
-  /* Sticker buttons: thick ink border + hard offset shadow */
-  .btn-saffron,
-  .btn-outline,
-  .btn-dark {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-bold font-sans text-sm rounded-full border-2 border-sabi-black shadow-[3px_3px_0_0_#16321C] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#16321C] active:translate-y-0.5 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed;
+  /* Buttons: tactile border + crisp offset shadow */
+  .btn-saffron, .btn-outline, .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-bold font-sans text-sm rounded-full
+           border-2 border-sabi-black shadow-[3px_3px_0_0_#101840]
+           transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_#101840]
+           active:translate-y-0.5 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed;
   }
-
   .btn-saffron {
-    @apply bg-white text-sabi-black hover:bg-sabi-black hover:text-white;
+    @apply bg-saffron text-white hover:bg-saffron-dark hover:text-white;
   }
-
   .btn-outline {
-    @apply bg-transparent text-sabi-black hover:bg-sabi-black hover:text-white;
+    @apply bg-white text-sabi-black hover:bg-saffron-muted hover:border-sabi-black;
   }
-
   .btn-dark {
     @apply bg-sabi-black text-white hover:bg-sabi-leaf;
   }
 
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-14 lg:py-20;
-  }
+  .section-padding { @apply px-4 sm:px-6 lg:px-8 py-14 lg:py-20; }
+  .container-max { @apply max-w-6xl mx-auto; }
+  .gold-line { @apply h-0.5 bg-gradient-to-r from-saffron-light via-saffron to-saffron-dark; }
 
-  .container-max {
-    @apply max-w-6xl mx-auto;
-  }
-
-  .gold-line {
-    @apply h-0.5 bg-sabi-black;
-  }
-
-  /* Market-awning stripe (clean ink forest & crisp white) */
+  /* Luxurious gold shimmer ribbon */
   .saffron-shimmer {
-    height: 10px !important;
-    background: repeating-linear-gradient(90deg, #16321C 0 22px, #FFFFFF 22px 44px);
-    animation: none;
+    height: 6px !important;
+    background: linear-gradient(90deg, #3730A3 0%, #4F46E5 25%, #DDE3FF 50%, #4F46E5 75%, #3730A3 100%);
+    background-size: 200% 100%;
+    animation: goldShimmer 4s ease-in-out infinite;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border-2 border-sabi-black/20 bg-white rounded-xl font-sans text-sm focus:outline-none focus:border-sabi-black transition-colors placeholder:text-sabi-grey/60;
+    @apply w-full px-4 py-3 border-2 border-sabi-black/20 bg-white rounded-xl font-sans text-sm text-sabi-black
+           focus:outline-none focus:border-saffron focus:ring-2 focus:ring-saffron/20 transition-all placeholder:text-sabi-grey/60;
   }
-
   .card-product {
-    @apply bg-white border-2 border-sabi-black rounded-2xl overflow-hidden shadow-[4px_4px_0_0_#16321C] transition-all duration-150 hover:-translate-y-1 hover:shadow-[7px_7px_0_0_#16321C];
+    @apply bg-white border-2 border-sabi-black rounded-2xl overflow-hidden shadow-[4px_4px_0_0_#101840]
+           transition-all duration-150 hover:-translate-y-1 hover:shadow-[7px_7px_0_0_#101840];
   }
-
-  .admin-sidebar-link {
-    @apply flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-white/10 hover:text-white;
-  }
-
-  .admin-sidebar-link.active {
-    @apply bg-white/10 text-white border-r-2 border-white;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hide {
-    scrollbar-width: none;
-  }
+  .admin-sidebar-link { @apply flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors hover:bg-white/10 hover:text-saffron-light; }
+  .admin-sidebar-link.active { @apply bg-white/10 text-saffron-light border-r-2 border-saffron-light; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
+@keyframes goldShimmer {
+  0% { background-position: 100% 0; }
+  50% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp .5s ease-out forwards;
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.animate-fadeInUp { animation: fadeInUp .5s ease-out forwards; }
 
-@media print {
-  body {
-    background: white !important;
-  }
-
-  @page {
-    margin: 15mm;
-  }
-}
-
-/* Very small screens (250px to 359px) */
-@media (max-width: 359px) {
-  h1 {
-    font-size: clamp(1.5rem, 9vw, 2rem) !important;
-    line-height: 1.1 !important;
-  }
-
-  h2 {
-    font-size: clamp(1.25rem, 7vw, 1.6rem) !important;
-    line-height: 1.15 !important;
-  }
-
-  .btn-saffron,
-  .btn-outline,
-  .btn-dark {
-    padding: 0.6rem 1rem;
-    font-size: 13px;
-    text-align: center;
-  }
-
-  .section-padding {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  table {
-    font-size: 12px;
-  }
-}
+@media print { body { background: white !important; } @page { margin: 15mm; } }

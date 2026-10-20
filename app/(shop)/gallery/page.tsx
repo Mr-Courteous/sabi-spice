@@ -20,33 +20,34 @@ export default async function GalleryPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-sabi-black py-24 relative">
-        <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
+      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-24 relative">
+        <div className="absolute top-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-saffron" />
-            <p className="text-saffron text-xs tracking-[0.4em] uppercase">Portfolio</p>
+            <div className="h-0.5 w-8 bg-saffron-light" />
+            <p className="text-saffron-light text-xs tracking-[0.4em] uppercase font-bold">Portfolio</p>
           </div>
-          <h1 className="font-serif text-5xl lg:text-6xl text-white leading-tight">
+          <h1 className="font-serif text-5xl lg:text-6xl text-white leading-tight font-extrabold">
             The Gallery
           </h1>
-          <p className="text-gray-400 mt-4 text-lg max-w-xl">
+          <p className="text-white/75 mt-4 text-lg max-w-xl leading-relaxed">
             Every piece tells a story. A look at what comes out of the Sabi Spice kitchen: boxes, small chops, spices and the parties we've fed.
           </p>
         </div>
       </section>
 
       {/* Filter tabs - client component placeholder */}
-      <section className="bg-white border-b border-gray-100 sticky top-16 lg:top-20 z-30">
+      <section className="bg-white/95 backdrop-blur-md border-b-2 border-sabi-black/10 sticky top-16 lg:top-20 z-30">
         <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
+          <div className="flex gap-2 overflow-x-auto py-3.5 scrollbar-hide">
             {CATEGORIES.map((cat, i) => (
               <button
                 key={cat}
-                className={`whitespace-nowrap px-5 py-2 text-xs tracking-widest uppercase font-sans transition-colors ${i === 0
-                    ? "bg-sabi-black text-white"
-                    : "text-sabi-grey hover:text-saffron"
-                  }`}
+                className={`whitespace-nowrap px-4 py-1.5 text-xs tracking-widest uppercase font-sans font-bold rounded-full transition-all ${
+                  i === 0
+                    ? "bg-sabi-black text-white shadow-[2px_2px_0_0_#101840]"
+                    : "text-sabi-grey hover:text-saffron-dark hover:bg-saffron-muted"
+                }`}
               >
                 {cat}
               </button>
@@ -100,12 +101,12 @@ export default async function GalleryPage() {
       </section>
 
       {/* Share your event */}
-      <section className="section-padding bg-sabi-charcoal">
+      <section className="section-padding bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black text-white">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-saffron text-xs tracking-[0.3em] uppercase mb-4">Are you a graduate?</p>
-          <h2 className="font-serif text-4xl text-white mb-4">Share Your Work</h2>
-          <p className="text-gray-400 max-w-md mx-auto mb-8">
-            Had Sabi Spice at your event? We'd love to feature your photos. Reach out and send them over.
+          <p className="text-saffron-light text-xs tracking-[0.3em] uppercase mb-4 font-bold">Have photos to share?</p>
+          <h2 className="font-serif text-4xl lg:text-5xl text-white mb-4 font-extrabold">Share Your Event</h2>
+          <p className="text-white/75 max-w-md mx-auto mb-8 leading-relaxed">
+            Had Sabi Spice at your wedding, birthday or gathering? We'd love to feature your photos.
           </p>
           <a href="/contact" className="btn-saffron">Get In Touch</a>
         </div>

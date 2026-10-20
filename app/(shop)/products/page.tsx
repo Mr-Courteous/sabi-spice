@@ -39,12 +39,12 @@ export default async function ProductsPage({
 
   const active = searchParams.category;
   const current = categories.find((c: any) => c.slug === active);
-  const pill = (on: boolean) => `whitespace-nowrap flex-shrink-0 px-3.5 py-1.5 lg:py-2 rounded-full border-2 border-sabi-black text-sm font-bold transition-colors ${on ? "bg-sabi-black text-white" : "bg-white hover:bg-saffron-muted"}`;
+  const pill = (on: boolean) => `whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-full border-2 border-sabi-black text-sm font-bold transition-all ${on ? "bg-sabi-black text-white shadow-[2px_2px_0_0_#101840]" : "bg-white text-sabi-black hover:bg-saffron-muted hover:text-saffron-dark shadow-sm"}`;
 
   return (
     <div className="max-w-6xl mx-auto px-3 min-[360px]:px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
       <div className="flex flex-wrap items-end justify-between gap-x-3 mb-3 sm:mb-6">
-        <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl">{current ? current.name : "The Menu"}</h1>
+        <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl text-sabi-black">{current ? current.name : "The Menu"}</h1>
         <p className="text-sabi-grey text-sm font-semibold">{products.length} item{products.length !== 1 ? "s" : ""}</p>
       </div>
 
@@ -65,14 +65,14 @@ export default async function ProductsPage({
               <div key={p.id} className="card-product flex gap-3 sm:gap-4 p-2.5 sm:p-3 items-center min-w-0">
                 <Link href={`/products/${p.slug}`} className="relative w-20 h-20 min-[340px]:w-24 min-[340px]:h-24 sm:w-28 sm:h-28 flex-shrink-0 self-start rounded-xl overflow-hidden bg-saffron-muted border-2 border-sabi-black flex items-center justify-center">
                   {p.images[0] ? <Image src={p.images[0]} alt={p.name} fill className="object-cover" /> : <span className="text-4xl sm:text-5xl">{catEmoji(p.category?.slug)}</span>}
-                  {p.stock === 0 && <span className="absolute inset-0 bg-white/70 flex items-center justify-center text-[11px] font-bold">SOLD OUT</span>}
+                  {p.stock === 0 && <span className="absolute inset-0 bg-white/80 backdrop-blur-xs flex items-center justify-center text-[11px] font-extrabold text-sabi-black">SOLD OUT</span>}
                 </Link>
                 <div className="flex-1 min-w-0 pr-1">
-                  {p.featured && <span className="inline-block bg-saffron-light border border-sabi-black rounded-full px-2 text-[10px] font-bold mb-1">★ FAVOURITE</span>}
-                  <Link href={`/products/${p.slug}`} className="block font-serif font-bold text-base sm:text-lg leading-tight hover:text-saffron break-words">{p.name}</Link>
+                  {p.featured && <span className="inline-block bg-saffron-light text-sabi-black border border-sabi-black rounded-full px-2.5 py-0.5 text-[10px] font-extrabold mb-1.5 shadow-sm">★ FAVOURITE</span>}
+                  <Link href={`/products/${p.slug}`} className="block font-serif font-bold text-base sm:text-lg leading-tight text-sabi-black hover:text-saffron-dark transition-colors break-words">{p.name}</Link>
                   <p className="hidden min-[340px]:block text-xs text-sabi-grey line-clamp-2 mt-1">{p.description}</p>
                   <div className="flex items-center justify-between gap-2 mt-2 sm:mt-3">
-                    <span className="font-serif font-extrabold text-base sm:text-lg">{formatPrice(p.price)}{p.comparePrice && <span className="hidden min-[340px]:inline ml-2 text-xs text-sabi-grey line-through font-sans font-medium">{formatPrice(p.comparePrice)}</span>}</span>
+                    <span className="font-serif font-extrabold text-base sm:text-lg text-sabi-leaf">{formatPrice(p.price)}{p.comparePrice && <span className="hidden min-[340px]:inline ml-2 text-xs text-sabi-grey line-through font-sans font-medium">{formatPrice(p.comparePrice)}</span>}</span>
                     <QuickAdd productId={p.id} inStock={p.stock > 0} />
                   </div>
                 </div>

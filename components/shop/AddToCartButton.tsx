@@ -13,7 +13,7 @@ export default function AddToCartButton({ productId, inStock }: { productId: str
 
   if (isAdmin) {
     return (
-      <p className="text-xs text-sabi-grey border border-gray-200 px-4 py-3 text-center">
+      <p className="text-xs text-sabi-grey border-2 border-sabi-black/10 px-4 py-3 text-center rounded-xl bg-white">
         Carting is disabled for admin accounts.
       </p>
     );
@@ -52,32 +52,32 @@ export default function AddToCartButton({ productId, inStock }: { productId: str
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <label className="text-xs tracking-widest uppercase text-sabi-grey w-20">Quantity</label>
-        <div className="flex items-center border border-gray-200">
+        <label className="text-xs tracking-widest uppercase text-sabi-grey w-20 font-semibold">Quantity</label>
+        <div className="flex items-center border-2 border-sabi-black rounded-xl overflow-hidden bg-white shadow-[2px_2px_0_0_#101840]">
           <button type="button" onClick={() => setQty(Math.max(1, qty - 1))}
-            className="w-10 h-10 flex items-center justify-center hover:bg-gray-50 text-sabi-black text-xl transition-colors">−</button>
-          <span className="w-12 text-center text-sm font-semibold">{qty}</span>
+            className="w-10 h-10 flex items-center justify-center hover:bg-saffron-muted text-sabi-black text-xl font-bold transition-colors">−</button>
+          <span className="w-12 text-center text-sm font-bold text-sabi-black">{qty}</span>
           <button type="button" onClick={() => setQty(qty + 1)}
-            className="w-10 h-10 flex items-center justify-center hover:bg-gray-50 text-sabi-black text-xl transition-colors">+</button>
+            className="w-10 h-10 flex items-center justify-center hover:bg-saffron-muted text-sabi-black text-xl font-bold transition-colors">+</button>
         </div>
       </div>
       <div className="flex gap-3">
         <button onClick={addToCart} disabled={loading}
-          className={`btn-saffron flex-1 transition-all ${added ? "bg-emerald-500 border-emerald-500" : ""}`}>
+          className={`btn-saffron flex-1 transition-all ${added ? "bg-sabi-leaf border-sabi-black text-white" : ""}`}>
           {loading ? (
             <span className="flex items-center justify-center gap-2">
-              <span className="w-4 h-4 border-2 border-sabi-black/30 border-t-sabi-black rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
               Adding...
             </span>
-          ) : added ? "✓ Added!" : "Add to Cart"}
+          ) : added ? "✓ Added to Order!" : "Add to Order"}
         </button>
         <Link href="/cart" className="btn-outline px-4 flex items-center justify-center" title="View Cart">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
         </Link>
       </div>
-      <p className="text-xs text-sabi-grey text-center">Free returns within 7 days · Secure checkout</p>
+      <p className="text-xs text-sabi-grey text-center font-medium">Freshly prepared · Fast pickup &amp; delivery</p>
     </div>
   );
 }

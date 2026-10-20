@@ -35,23 +35,23 @@ export default async function TestimonialsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-sabi-black py-24 relative">
-        <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
+      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-24 relative">
+        <div className="absolute top-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-saffron text-xs tracking-[0.4em] uppercase mb-4">Social Proof</p>
-          <h1 className="font-serif text-5xl lg:text-6xl text-white mb-6">Loved By Many</h1>
+          <p className="text-saffron-light text-xs tracking-[0.4em] uppercase mb-4 font-bold">Social Proof</p>
+          <h1 className="font-serif text-5xl lg:text-6xl text-white mb-6 font-extrabold">Loved By Many</h1>
           <div className="flex items-center justify-center gap-6 mt-6">
             <div className="text-center">
-              <p className="font-serif text-5xl text-saffron font-bold">{avgRating}</p>
+              <p className="font-serif text-5xl text-saffron-light font-extrabold drop-shadow-sm">{avgRating}</p>
               <div className="flex justify-center gap-0.5 mt-1">
-                {Array.from({ length: 5 }).map((_, i) => <span key={i} className="text-saffron">★</span>)}
+                {Array.from({ length: 5 }).map((_, i) => <span key={i} className="text-saffron-light text-lg">★</span>)}
               </div>
-              <p className="text-gray-500 text-xs mt-1 tracking-widest uppercase">Average Rating</p>
+              <p className="text-white/60 text-xs mt-1 tracking-widest uppercase font-semibold">Average Rating</p>
             </div>
-            <div className="w-px h-16 bg-white/10" />
+            <div className="w-px h-16 bg-white/15" />
             <div className="text-center">
-              <p className="font-serif text-5xl text-saffron font-bold">{all.length || "200"}+</p>
-              <p className="text-gray-500 text-xs mt-2 tracking-widest uppercase">Happy Clients</p>
+              <p className="font-serif text-5xl text-saffron-light font-extrabold drop-shadow-sm">{all.length || "200"}+</p>
+              <p className="text-white/60 text-xs mt-2 tracking-widest uppercase font-semibold">Happy Clients</p>
             </div>
           </div>
         </div>
@@ -61,8 +61,8 @@ export default async function TestimonialsPage() {
       <section className="section-padding bg-sabi-light">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <p className="text-saffron text-xs tracking-[0.3em] uppercase mb-3">Shoppers</p>
-            <h2 className="font-serif text-3xl text-sabi-black">Customer Reviews</h2>
+            <p className="text-saffron-dark text-xs tracking-[0.3em] uppercase mb-3 font-extrabold">Shoppers</p>
+            <h2 className="font-serif text-3xl text-sabi-black font-extrabold">Customer Reviews</h2>
             <div className="h-px w-12 bg-saffron-gradient mt-3" />
           </div>
 
