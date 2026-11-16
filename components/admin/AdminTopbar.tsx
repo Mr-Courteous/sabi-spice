@@ -8,7 +8,7 @@ interface AdminTopbarProps {
 
 export default function AdminTopbar({ user, onToggleSidebar }: AdminTopbarProps) {
   return (
-    <header className="bg-white border-b border-gray-100 px-3 sm:px-4 lg:px-8 h-14 flex items-center justify-between flex-shrink-0 relative">
+    <header className="bg-white border-b border-sabi-black/10 px-3 sm:px-4 lg:px-8 h-14 flex items-center justify-between flex-shrink-0 relative">
       <div className="h-0.5 absolute top-0 left-0 right-0 saffron-shimmer" />
       <button onClick={onToggleSidebar} className="lg:hidden text-sabi-black text-xl p-1 -ml-1" aria-label="Toggle menu">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +20,7 @@ export default function AdminTopbar({ user, onToggleSidebar }: AdminTopbarProps)
         <span className="text-xs bg-saffron/15 text-saffron px-2 py-0.5 uppercase tracking-wide font-medium">Admin</span>
         <button
           onClick={() => signOut({ callbackUrl: "/admin/login" })}
-          className="text-xs text-gray-400 hover:text-red-500 transition-colors uppercase tracking-wide whitespace-nowrap"
+          className="text-xs text-sabi-grey hover:text-red-500 transition-colors uppercase tracking-wide whitespace-nowrap"
         >
           Sign Out
         </button>

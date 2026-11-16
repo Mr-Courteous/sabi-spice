@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import Logo from "@/components/ui/Logo";
+import Icon from "@/components/ui/Icon";
 
 const links = [
   { href: "/products", label: "Menu" },
@@ -32,56 +33,74 @@ export default function Navbar() {
   }, [session]);
   useEffect(() => setOpen(false), [path]);
 
-  const active = (href: string) => path === href || (href !== "/" && path.startsWith(href));
-  const cart = (
-    <Link href="/cart" className="relative flex items-center gap-1.5 bg-saffron text-white hover:bg-saffron-dark font-bold text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 border-2 border-sabi-black shadow-[2px_2px_0_0_#101840] hover:shadow-[3px_3px_0_0_#101840] transition-all">
-      🛒 <span className="hidden sm:inline">Order</span>
-      {count > 0 && <span className="bg-saffron-light text-sabi-black font-extrabold text-[11px] rounded-full min-w-5 h-5 px-1 flex items-center justify-center border border-sabi-black shadow-sm">{count}</span>}
-    </Link>
-  );
+  const active = (href: string) => (href === "/" ? path === "/" : path === href || path.startsWith(href));
+
+  const tabs: [string, string, string][] = [
+    ["/", "home", "Home"],
+    ["/products", "menu", "Menu"],
+    ["/catering", "party", "Catering"],
+    ["/cart", "bag", "Order"],
+    [session ? "/account/orders" : "/login", "user", session ? "Account" : "Sign in"],
+  ];
 
   return (
     <>
-      {/* Floating pill navigation */}
-      <header className="fixed top-2 sm:top-3 inset-x-0 z-50 px-2 min-[360px]:px-3">
-        <div className="mx-auto max-w-5xl flex items-center justify-between gap-2 bg-white/95 backdrop-blur-md border-2 border-sabi-black rounded-full pl-2 sm:pl-3 pr-1.5 sm:pr-2 py-1 sm:py-1.5 shadow-[3px_3px_0_0_#101840]">
+      <header className="fixed top-0 inset-x-0 z-50 bg-sabi-light/60 backdrop-blur-xl border-b border-sabi-black/10">
+        <div className="mx-auto max-w-6xl h-16 sm:h-[72px] px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           <Logo size="sm" />
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1" aria-label="Main">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className={`px-3.5 py-1.5 rounded-full text-sm font-semibold transition-colors ${active(l.href) ? "bg-sabi-black text-white shadow-sm" : "hover:bg-saffron-muted hover:text-saffron-dark text-sabi-black"}`}>{l.label}</Link>
+              <Link key={l.href} href={l.href} className={`relative px-3.5 py-2 text-sm font-semibold transition-colors ${active(l.href) ? "text-saffron" : "text-sabi-grey hover:text-sabi-black"}`}>
+                {l.label}
+                {active(l.href) && <span className="absolute left-3.5 right-3.5 -bottom-[13px] h-0.5 rounded-full bg-saffron" />}
+              </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-1.5 sm:gap-2 relative">
-            {!isAdmin && cart}
+          <div className="flex items-center gap-2 relative">
+            <Link href="/products" aria-label="Search the menu" className="w-10 h-10 rounded-full grid place-items-center text-sabi-black hover:bg-sabi-dark/5 transition-colors">
+              <Icon name="search" />
+            </Link>
+            {!isAdmin && (
+              <Link href="/cart" className="hidden md:flex items-center gap-2 bg-saffron hover:bg-saffron-dark text-[rgb(var(--on-accent))] text-sm font-bold rounded-full pl-4 pr-3 py-2 transition-colors">
+                <Icon name="bag" className="w-[18px] h-[18px]" /> Order
+                <span className={`min-w-6 h-6 px-1.5 rounded-full text-xs font-extrabold grid place-items-center ${count > 0 ? "bg-black/25" : "bg-black/15"}`}>{count}</span>
+              </Link>
+            )}
             {session ? (
               <>
-                <button onClick={() => setOpen(!open)} aria-label="Account" className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-saffron-light text-sabi-black border-2 border-sabi-black font-bold flex items-center justify-center shadow-[1px_1px_0_0_#101840]">
+                <button onClick={() => setOpen(!open)} aria-label="Account" aria-expanded={open} className="w-10 h-10 rounded-full bg-saffron-muted text-saffron-dark font-extrabold grid place-items-center ring-1 ring-saffron/20">
                   {(session.user?.name || session.user?.email || "U")[0].toUpperCase()}
                 </button>
                 {open && (
-                  <div className="absolute right-0 top-11 w-44 max-w-[calc(100vw-1.5rem)] bg-white border-2 border-sabi-black rounded-2xl shadow-[4px_4px_0_0_#101840] overflow-hidden text-sm font-semibold">
-                    {isAdmin && <Link href="/admin" className="block px-4 py-3 hover:bg-saffron-muted">⚙ Admin</Link>}
-                    <Link href="/account/orders" className="block px-4 py-3 hover:bg-saffron-muted">📦 My orders</Link>
-                    <button onClick={() => signOut({ callbackUrl: "/" })} className="block w-full text-left px-4 py-3 text-saffron-dark hover:bg-saffron-muted border-t border-sabi-black/10">↩ Sign out</button>
+                  <div className="absolute right-0 top-12 w-48 bg-surface rounded-2xl shadow-lift ring-1 ring-sabi-black/5 overflow-hidden text-sm font-semibold">
+                    {isAdmin && <Link href="/admin" className="block px-4 py-3 hover:bg-sabi-dark/5">Admin dashboard</Link>}
+                    <Link href="/account/orders" className="block px-4 py-3 hover:bg-sabi-dark/5">My orders</Link>
+                    <button onClick={() => signOut({ callbackUrl: "/" })} className="block w-full text-left px-4 py-3 text-saffron-dark hover:bg-saffron-muted border-t border-sabi-black/5">Sign out</button>
                   </div>
                 )}
               </>
             ) : (
-              <Link href="/login" className="hidden sm:block px-4 py-2 rounded-full text-sm font-bold text-sabi-black hover:bg-saffron-muted hover:text-saffron-dark transition-colors">Sign in</Link>
+              <Link href="/login" className="hidden sm:inline-flex px-4 py-2 rounded-full text-sm font-bold text-sabi-black ring-1 ring-inset ring-sabi-black/25 hover:ring-saffron hover:text-saffron transition-colors">Sign in</Link>
             )}
           </div>
         </div>
       </header>
 
       {/* Mobile bottom tab bar */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t-2 border-sabi-black grid grid-cols-5 font-bold pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_12px_rgba(16,24,64,0.08)]">
-        {([["/", "🏠", "Home", "Home"], ["/products", "🍽", "Menu", "Menu"], ["/catering", "🎉", "Cater", "Catering"], ["/cart", "🛒", "Order", "Order"], [session ? "/account/orders" : "/login", "👤", session ? "Me" : "Login", session ? "Me" : "Sign in"]] as string[][]).map(([href, icon, short, long]) => (
-          <Link key={href} href={href} className={`relative min-w-0 flex flex-col items-center gap-0.5 py-1.5 min-[340px]:py-2 text-[10px] min-[340px]:text-[11px] transition-colors ${active(href) ? "bg-saffron-muted text-saffron-dark font-extrabold" : "text-sabi-grey hover:text-sabi-black"}`}>
-            <span className="text-base min-[340px]:text-lg leading-none">{icon}</span>
-            <span className="min-[340px]:hidden">{short}</span><span className="hidden min-[340px]:inline truncate max-w-full">{long}</span>
-            {href === "/cart" && count > 0 && <span className="absolute top-0.5 right-[14%] bg-saffron text-white text-[9px] font-bold rounded-full min-w-4 h-4 px-1 flex items-center justify-center border border-sabi-black shadow-sm">{count}</span>}
-          </Link>
-        ))}
+      <nav aria-label="Primary" className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-sabi-light/90 backdrop-blur-xl border-t border-sabi-black/10 grid grid-cols-5 pb-[env(safe-area-inset-bottom)]">
+        {tabs.map(([href, icon, label]) => {
+          const on = active(href);
+          return (
+            <Link key={href} href={href} className={`relative flex flex-col items-center gap-1 pt-2.5 pb-2 text-[11px] font-semibold transition-colors ${on ? "text-saffron" : "text-sabi-grey"}`}>
+              {on && <span className="absolute top-0 h-[3px] w-8 rounded-b-full bg-saffron" />}
+              <span className="relative">
+                <Icon name={icon} className="w-6 h-6" />
+                {href === "/cart" && count > 0 && <span className="absolute -top-1.5 -right-2.5 bg-saffron text-[rgb(var(--on-accent))] text-[10px] font-extrabold rounded-full min-w-[18px] h-[18px] px-1 grid place-items-center">{count}</span>}
+              </span>
+              {label}
+            </Link>
+          );
+        })}
       </nav>
     </>
   );

@@ -35,7 +35,7 @@ export default async function OrderConfirmationPage({
       {isPending && searchParams.session_id && (
         <VerifyOnMount orderNumber={searchParams.order} sessionId={searchParams.session_id} isPending={isPending} />
       )}
-      <section className="bg-sabi-black py-16 relative">
+      <section className="bg-sabi-dark py-16 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <div className={`w-20 h-20 border-2 flex items-center justify-center mx-auto mb-6 ${isPending ? "border-yellow-500" : "border-saffron"}`}>
@@ -55,7 +55,7 @@ export default async function OrderConfirmationPage({
           <h1 className="font-serif text-4xl lg:text-5xl text-white mb-3">
             {isPending ? "Payment Received!" : "Order Confirmed!"}
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-sabi-grey text-lg">
             {isPending
               ? "Your payment is being confirmed. This page will update automatically."
               : "Thank you for shopping with Sabi Spice."}
@@ -75,7 +75,7 @@ export default async function OrderConfirmationPage({
       <section className="section-padding bg-sabi-light">
         <div className="container-max px-4 sm:px-6 lg:px-8 max-w-3xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white border border-gray-100 p-6">
+            <div className="bg-surface border border-sabi-black/10 p-6">
               <h2 className="font-serif text-lg text-sabi-black mb-4">Order Details</h2>
               <div className="space-y-3 text-sm">
                   {[
@@ -93,13 +93,13 @@ export default async function OrderConfirmationPage({
               {isPaid && <DownloadReceiptButton orderNumber={order.orderNumber} />}
             </div>
 
-            <div className="bg-white border border-gray-100 p-6">
+            <div className="bg-surface border border-sabi-black/10 p-6">
               <h2 className="font-serif text-lg text-sabi-black mb-4">Delivery To</h2>
               <div className="space-y-2 text-sm">
                 <p className="font-semibold text-sabi-black">{order.customerName}</p>
                 <p className="text-sabi-grey">{order.customerEmail}</p>
                 {order.customerPhone && <p className="text-sabi-grey">{order.customerPhone}</p>}
-                <div className="pt-2 border-t border-gray-100">
+                <div className="pt-2 border-t border-sabi-black/10">
                   <p className="text-sabi-grey">{order.shippingAddress}</p>
                   <p className="text-sabi-grey">{[order.city, order.state].filter(Boolean).join(", ")}</p>
                 </div>
@@ -107,7 +107,7 @@ export default async function OrderConfirmationPage({
             </div>
           </div>
 
-          <div className="bg-white border border-gray-100 p-6 mb-6">
+          <div className="bg-surface border border-sabi-black/10 p-6 mb-6">
             <h2 className="font-serif text-lg text-sabi-black mb-5">Items Ordered</h2>
             <div className="space-y-4">
               {order.items.map((item) => (
@@ -123,7 +123,7 @@ export default async function OrderConfirmationPage({
                 </div>
               ))}
             </div>
-            <div className="border-t border-gray-100 mt-4 pt-4 flex justify-between font-serif text-xl font-bold text-sabi-black">
+            <div className="border-t border-sabi-black/10 mt-4 pt-4 flex justify-between font-serif text-xl font-bold text-sabi-black">
               <span>Total Paid</span>
               <span>{formatPrice(order.total)}</span>
             </div>
@@ -141,7 +141,7 @@ export default async function OrderConfirmationPage({
                     <div key={s.title} className="text-center">
                       <span className="text-3xl block mb-3">{s.icon}</span>
                       <p className="font-sans font-semibold text-white text-sm mb-1">{s.title}</p>
-                      <p className="text-gray-400 text-xs leading-relaxed">{s.desc}</p>
+                      <p className="text-sabi-grey text-xs leading-relaxed">{s.desc}</p>
                     </div>
                   ))
                 : [
@@ -152,7 +152,7 @@ export default async function OrderConfirmationPage({
                     <div key={s.title} className="text-center">
                       <span className="text-3xl block mb-3">{s.icon}</span>
                       <p className="font-sans font-semibold text-white text-sm mb-1">{s.title}</p>
-                      <p className="text-gray-400 text-xs leading-relaxed">{s.desc}</p>
+                      <p className="text-sabi-grey text-xs leading-relaxed">{s.desc}</p>
                     </div>
                   ))}
             </div>

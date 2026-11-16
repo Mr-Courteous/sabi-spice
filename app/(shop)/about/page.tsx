@@ -16,7 +16,7 @@ const values = [
 export default function AboutPage() {
   return (
     <div>
-      <section className="relative bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-28 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-dark py-28 overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 relative">
           <p className="text-saffron-light text-xs tracking-[0.4em] uppercase mb-5 font-bold">Our Story</p>
@@ -26,7 +26,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-max px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div className="space-y-5 text-sabi-grey leading-relaxed">
             <p className="text-xs tracking-[0.3em] uppercase text-saffron-dark font-extrabold">Who we are</p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
               <Link href="/catering" className="btn-dark">Cater My Event</Link>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-saffron-muted via-saffron-lighter to-white border-2 border-sabi-black rounded-3xl aspect-square flex items-center justify-center shadow-[6px_6px_0_0_#101840] p-8">
+          <div className="bg-gradient-to-br from-saffron-muted via-saffron-lighter to-white border border-sabi-black/10 rounded-3xl aspect-square flex items-center justify-center shadow-soft p-8">
             <Image src="/sabi-logo.png" alt="Sabi Spice" width={300} height={300} className="rounded-2xl drop-shadow-md" />
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((v) => (
-              <div key={v.title} className="bg-white border-2 border-sabi-black rounded-2xl p-8 shadow-[4px_4px_0_0_#101840]">
+              <div key={v.title} className="bg-surface border border-sabi-black/10 rounded-2xl p-8 shadow-soft">
                 <span className="text-saffron text-2xl font-serif font-bold">{v.icon}</span>
                 <h3 className="font-serif text-xl text-sabi-black font-bold mt-4 mb-2">{v.title}</h3>
                 <p className="text-sabi-grey text-sm leading-relaxed">{v.desc}</p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
           <p className="text-white/80 mb-8 max-w-md mx-auto">Order a box, stock up on spices, or tell us about your next event.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/products" className="btn-dark">Shop Now</Link>
-            <Link href="/catering" className="btn-outline !text-white !border-white hover:!bg-white hover:!text-saffron-dark">Request Catering</Link>
+            <Link href="/catering" className="btn-outline !text-white !border-white hover:!bg-surface hover:!text-saffron-dark">Request Catering</Link>
           </div>
         </div>
       </section>

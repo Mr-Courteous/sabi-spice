@@ -1,64 +1,37 @@
 import type { Config } from "tailwindcss";
 
-// Sabi Spice palette (v3): white/ice backgrounds, deep navy neutrals, indigo-blue accent, purple spark.
-// NOTE: token names (saffron/sabi) are legacy — values are the new palette. Rename when the concept redesign starts.
+let typography: any[] = [];
+try { typography = [require("@tailwindcss/typography")]; } catch {}
+
+// Colours are CSS variables (see globals.css) so the shop can run in a dark "cinematic" theme
+// while the admin keeps the light one.
+const v = (n: string) => `rgb(var(--${n}) / <alpha-value>)`;
+
 const config: Config = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        saffron: {
-          DEFAULT: "#4F46E5", // Indigo blue (primary accent, buttons, links)
-          light: "#A5B4FC",   // Periwinkle (highlights on dark backgrounds)
-          lighter: "#F0F2FF", // Faint blue tint
-          dark: "#3730A3",    // Deep indigo (hover / pressed)
-          muted: "#E3E7FF",   // Soft blue-lilac (muted fills)
-          spice: "#9333EA",   // Purple spark (secondary accent)
-          glow: "#C7D2FE",    // Soft blue glow
-        },
-        sabi: {
-          dark: "#080C24",    // Midnight navy
-          black: "#101840",   // Deep navy (text & borders)
-          charcoal: "#1B2766",// Regal dark indigo
-          leaf: "#2E3A9F",    // Primary brand royal indigo ("Sabi" wordmark)
-          emerald: "#4B57D6", // Bright blue-violet for hovers
-          fresh: "#1E9E74",   // Mint green for in-stock badges
-          light: "#F9FAFF",   // Ice-white page background
-          cream: "#EEF1FC",   // Pale periwinkle
-          grey: "#5B6488",    // Muted slate-blue for secondary text
-        },
+        sabi: { light: v("bg"), black: v("ink"), dark: v("deep"), charcoal: v("panel"), leaf: v("leaf"), emerald: v("fresh"), grey: v("mute") },
+        surface: v("surface"),
+        saffron: { DEFAULT: v("accent"), dark: v("accent-dark"), light: v("accent-light"), lighter: v("accent-lighter"), muted: v("accent-muted") },
+        gold: v("gold"),
       },
       fontFamily: {
-        serif: ["'Bricolage Grotesque'", "system-ui", "sans-serif"],
-        sans: ["'Manrope'", "system-ui", "sans-serif"],
-        script: ["'Great Vibes'", "cursive"],
-      },
-      backgroundImage: {
-        "saffron-gradient": "linear-gradient(135deg, #A5B4FC 0%, #4F46E5 50%, #3730A3 100%)",
-        "saffron-shimmer": "linear-gradient(90deg, #3730A3 0%, #4F46E5 25%, #DDE3FF 50%, #4F46E5 75%, #3730A3 100%)",
-        "sabi-gradient": "linear-gradient(145deg, #2E3A9F 0%, #1B2766 60%, #101840 100%)",
+        sans: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Instrument Serif", "Georgia", "serif"],
+        serif: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"], // legacy alias: old bold headings stay sans
+        script: ["Great Vibes", "cursive"],
       },
       boxShadow: {
-        "sabi-sm": "2px 2px 0 0 #101840",
-        "sabi-md": "4px 4px 0 0 #101840",
-        "sabi-lg": "6px 6px 0 0 #101840",
-        "saffron-glow": "0 8px 24px -4px rgba(79, 70, 229, 0.35)",
-        "emerald-glow": "0 8px 24px -4px rgba(46, 58, 159, 0.25)",
+        soft: "0 1px 2px rgba(18,48,30,.06), 0 10px 24px -14px rgba(18,48,30,.25)",
+        lift: "0 2px 4px rgba(18,48,30,.08), 0 24px 48px -18px rgba(18,48,30,.35)",
       },
-      keyframes: {
-        marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
-        goldShimmer: {
-          "0%": { backgroundPosition: "100% 0" },
-          "50%": { backgroundPosition: "0 0" },
-          "100%": { backgroundPosition: "100% 0" },
-        },
-      },
-      animation: {
-        marquee: "marquee 28s linear infinite",
-        shimmer: "goldShimmer 4s ease-in-out infinite",
-      },
+      backgroundImage: { "saffron-gradient": "linear-gradient(135deg, #FFB84D 0%, #D63A0A 100%)" },
+      keyframes: { marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } } },
+      animation: { marquee: "marquee 30s linear infinite" },
     },
   },
-  plugins: [],
+  plugins: typography,
 };
 export default config;

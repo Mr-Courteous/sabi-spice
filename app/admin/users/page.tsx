@@ -13,10 +13,10 @@ export default async function AdminUsersPage() {
         <h1 className="font-serif text-3xl text-sabi-black">Customers</h1>
         <p className="text-sabi-grey text-sm mt-1">{users.length} registered customers</p>
       </div>
-      <div className="bg-white border border-gray-100">
+      <div className="bg-white border border-sabi-black/10">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-sabi-black/10">
               {["Customer", "Email", "Orders", "Joined"].map((h) => (
                 <th key={h} className="text-left px-5 py-3.5 text-xs tracking-widests uppercase text-sabi-grey font-medium">{h}</th>
               ))}
@@ -24,7 +24,7 @@ export default async function AdminUsersPage() {
           </thead>
           <tbody>
             {users.map((u) => (
-              <tr key={u.id} className="border-b border-gray-50 hover:bg-gray-50">
+              <tr key={u.id} className="border-b border-gray-50 hover:bg-sabi-black/5">
                 <td className="px-5 py-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-saffron/15 flex items-center justify-center">

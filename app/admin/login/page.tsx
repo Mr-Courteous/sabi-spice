@@ -32,7 +32,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-sabi-black flex items-center justify-center px-4">
+    <div className="min-h-screen bg-sabi-dark flex items-center justify-center px-4">
       {/* Gold top bar */}
       <div className="fixed top-0 left-0 right-0 h-1 saffron-shimmer" />
 
@@ -47,30 +47,30 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="bg-sabi-charcoal border border-white/5 p-8">
-          <h2 className="font-sans text-sm tracking-widest uppercase text-gray-400 mb-6 text-center">
+          <h2 className="font-sans text-sm tracking-widest uppercase text-sabi-grey mb-6 text-center">
             Administrator Sign In
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs tracking-widest uppercase text-gray-500 mb-2">Email</label>
+              <label className="block text-xs tracking-widest uppercase text-sabi-grey mb-2">Email</label>
               <input
                 type="email"
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 bg-sabi-black border border-white/10 text-white text-sm focus:outline-none focus:border-saffron transition-colors placeholder:text-gray-600"
+                className="w-full px-4 py-3 bg-sabi-dark border border-white/10 text-white text-sm focus:outline-none focus:border-saffron transition-colors placeholder:text-sabi-grey"
                 placeholder="admin@sabispice.com"
               />
             </div>
             <div>
-              <label className="block text-xs tracking-widest uppercase text-gray-500 mb-2">Password</label>
+              <label className="block text-xs tracking-widest uppercase text-sabi-grey mb-2">Password</label>
               <input
                 type="password"
                 required
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full px-4 py-3 bg-sabi-black border border-white/10 text-white text-sm focus:outline-none focus:border-saffron transition-colors placeholder:text-gray-600"
+                className="w-full px-4 py-3 bg-sabi-dark border border-white/10 text-white text-sm focus:outline-none focus:border-saffron transition-colors placeholder:text-sabi-grey"
                 placeholder="••••••••"
               />
             </div>
@@ -81,7 +81,7 @@ export default function AdminLoginPage() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-gray-600 mt-6">
+        <p className="text-center text-xs text-sabi-grey mt-6">
           <a href="/" className="hover:text-saffron transition-colors">← Back to Store</a>
         </p>
       </div>

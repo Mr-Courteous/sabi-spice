@@ -36,7 +36,7 @@ export default function CategoryForm({ initialData }: { initialData?: any }) {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg">
-      <div className="bg-white border border-gray-100 p-6 space-y-5">
+      <div className="bg-white border border-sabi-black/10 p-6 space-y-5">
         <div>
           <label className="block text-xs tracking-widests uppercase text-sabi-grey mb-2">Category Name *</label>
           <input required value={form.name} onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))} className="input-field" placeholder="e.g. Small Chops" />

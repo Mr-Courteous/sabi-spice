@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { jsPDF } from "jspdf";
 import toast from "react-hot-toast";
 
-const GOLD = "#4F46E5";
+const GOLD = "#CF4208";
 const DARK = "#1a1a1a";
 const GREY = "#666";
 

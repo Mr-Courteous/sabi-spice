@@ -37,18 +37,18 @@ function LoginContent() {
   return (
     <div className="min-h-screen bg-sabi-light flex">
       {/* Left panel - saffron branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-sabi-black flex-col justify-between p-12">
+      <div className="hidden lg:flex lg:w-1/2 bg-sabi-dark flex-col justify-between p-12">
         <Logo variant="light" size="lg" />
         <div>
           <h2 className="font-serif text-5xl text-white leading-tight mb-4">
             Welcome<br />
             <span className="text-transparent bg-clip-text bg-saffron-gradient">Back.</span>
           </h2>
-          <p className="text-gray-400 text-base leading-relaxed">
+          <p className="text-sabi-grey text-base leading-relaxed">
             Sign in to access your orders, wishlist, and exclusive member benefits.
           </p>
         </div>
-        <p className="text-gray-600 text-xs tracking-widest uppercase">Sabi Spice – Taste Home</p>
+        <p className="text-sabi-grey text-xs tracking-widest uppercase">Sabi Spice – Taste Home</p>
       </div>
 
       {/* Right panel - form */}

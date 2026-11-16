@@ -45,7 +45,7 @@ export default function GalleryItemForm({ initialData }: { initialData?: any }) 
 
   return (
     <form onSubmit={handleSubmit} className="max-w-xl">
-      <div className="bg-white border border-gray-100 p-6 space-y-5">
+      <div className="bg-white border border-sabi-black/10 p-6 space-y-5">
         <div>
           <label className="block text-xs tracking-widest uppercase text-sabi-grey mb-2">Image *</label>
           <ImageUploader value={form.image} onChange={(url) => set("image", url)} />

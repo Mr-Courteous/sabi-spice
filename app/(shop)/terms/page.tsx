@@ -4,14 +4,14 @@ export const metadata: Metadata = { title: "Terms of Service" };
 export default function TermsPage() {
   return (
     <div>
-      <section className="bg-sabi-black py-20 relative">
+      <section className="bg-sabi-dark py-20 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <h1 className="font-serif text-5xl text-white">Terms of Service</h1>
-          <p className="text-gray-400 mt-3">Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}</p>
+          <p className="text-sabi-grey mt-3">Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}</p>
         </div>
       </section>
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-max px-4 sm:px-6 lg:px-8 max-w-3xl prose prose-lg">
           <h2>1. Orders & Payment</h2>
           <p>All orders are subject to availability. Payment must be completed in full before orders are processed. Prices are listed in US dollars (USD).</p>

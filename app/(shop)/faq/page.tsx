@@ -46,12 +46,12 @@ export default function FaqPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-sabi-black py-24 relative">
+      <section className="bg-sabi-dark py-24 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-saffron text-xs tracking-[0.4em] uppercase mb-4">Help Centre</p>
           <h1 className="font-serif text-5xl lg:text-6xl text-white">Frequently Asked<br />Questions</h1>
-          <p className="text-gray-400 mt-5 text-lg max-w-lg mx-auto">Everything you need to know about our food, orders, and catering.</p>
+          <p className="text-sabi-grey mt-5 text-lg max-w-lg mx-auto">Everything you need to know about our food, orders, and catering.</p>
         </div>
       </section>
 
@@ -63,7 +63,7 @@ export default function FaqPage() {
       </section>
 
       {/* Still have questions */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 border border-saffron/30 mb-6">
             <span className="text-saffron text-2xl">?</span>

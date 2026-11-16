@@ -35,7 +35,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-sabi-light flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md bg-white p-8 lg:p-10">
+      <div className="w-full max-w-md bg-surface p-8 lg:p-10">
         <div className="mb-8"><Logo size="md" /></div>
         <h1 className="font-serif text-3xl text-sabi-black mb-2">Create Account</h1>
         <p className="text-sabi-grey text-sm mb-8">

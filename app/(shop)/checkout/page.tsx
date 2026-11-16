@@ -13,7 +13,7 @@ export default async function CheckoutPage() {
 
   return (
     <div>
-      <section className="bg-sabi-black py-16 relative">
+      <section className="bg-sabi-dark py-16 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-3">

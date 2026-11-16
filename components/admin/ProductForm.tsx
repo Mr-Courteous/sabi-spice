@@ -63,7 +63,7 @@ export default function ProductForm({ categories, initialData }: ProductFormProp
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main fields */}
         <div className="lg:col-span-2 space-y-5">
-          <div className="bg-white border border-gray-100 p-6">
+          <div className="bg-white border border-sabi-black/10 p-6">
             <h3 className="font-serif text-lg text-sabi-black mb-5">Product Details</h3>
             <div className="space-y-4">
               <div>
@@ -77,7 +77,7 @@ export default function ProductForm({ categories, initialData }: ProductFormProp
             </div>
           </div>
 
-          <div className="bg-white border border-gray-100 p-6">
+          <div className="bg-white border border-sabi-black/10 p-6">
             <h3 className="font-serif text-lg text-sabi-black mb-5">Images</h3>
             <MultiImageUploader
               values={form.images}
@@ -88,7 +88,7 @@ export default function ProductForm({ categories, initialData }: ProductFormProp
 
         {/* Sidebar */}
         <div className="space-y-5">
-          <div className="bg-white border border-gray-100 p-6">
+          <div className="bg-white border border-sabi-black/10 p-6">
             <h3 className="font-serif text-lg text-sabi-black mb-5">Pricing</h3>
             <div className="space-y-4">
               <div>
@@ -102,7 +102,7 @@ export default function ProductForm({ categories, initialData }: ProductFormProp
             </div>
           </div>
 
-          <div className="bg-white border border-gray-100 p-6">
+          <div className="bg-white border border-sabi-black/10 p-6">
             <h3 className="font-serif text-lg text-sabi-black mb-5">Inventory</h3>
             <div>
               <label className="block text-xs tracking-widest uppercase text-sabi-grey mb-2">Stock Quantity</label>
@@ -110,7 +110,7 @@ export default function ProductForm({ categories, initialData }: ProductFormProp
             </div>
           </div>
 
-          <div className="bg-white border border-gray-100 p-6">
+          <div className="bg-white border border-sabi-black/10 p-6">
             <h3 className="font-serif text-lg text-sabi-black mb-5">Organisation</h3>
             <div className="space-y-4">
               <div>

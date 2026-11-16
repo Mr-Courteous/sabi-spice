@@ -30,7 +30,7 @@ export default async function BlogPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-sabi-black py-24 relative">
+      <section className="bg-sabi-dark py-24 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
@@ -38,7 +38,7 @@ export default async function BlogPage() {
             <p className="text-saffron text-xs tracking-[0.4em] uppercase">Journal</p>
           </div>
           <h1 className="font-serif text-5xl lg:text-6xl text-white">The Sabi Spice Blog</h1>
-          <p className="text-gray-400 mt-4 text-lg max-w-lg">Recipes, spice guides and stories from our kitchen.</p>
+          <p className="text-sabi-grey mt-4 text-lg max-w-lg">Recipes, spice guides and stories from our kitchen.</p>
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default async function BlogPage() {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           {/* Featured post */}
           <Link href={`/blog/${featured.slug}`} className="block mb-12 group">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-surface border border-sabi-black/10 overflow-hidden hover:shadow-lg transition-shadow">
               <div className="aspect-[4/3] lg:aspect-auto bg-saffron-muted relative flex items-center justify-center min-h-[280px]">
                 {(featured as any).image ? (
                   <Image src={(featured as any).image} alt={featured.title} fill className="object-cover" />

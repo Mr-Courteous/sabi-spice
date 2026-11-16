@@ -19,10 +19,10 @@ export default async function AdminProductsPage() {
         <Link href="/admin/products/new" className="btn-saffron">+ Add Product</Link>
       </div>
 
-      <div className="bg-white border border-gray-100 overflow-hidden">
+      <div className="bg-white border border-sabi-black/10 overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-sabi-black/10">
               {["Image", "Product", "Category", "Price", "Stock", "Status", "Actions"].map((h) => (
                 <th key={h} className="text-left px-5 py-3.5 text-xs tracking-widest uppercase text-sabi-grey font-medium">{h}</th>
               ))}
@@ -30,7 +30,7 @@ export default async function AdminProductsPage() {
           </thead>
           <tbody>
             {products.map((p) => (
-              <tr key={p.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+              <tr key={p.id} className="border-b border-gray-50 hover:bg-sabi-black/5 transition-colors">
                 <td className="px-5 py-4">
                   <div className="w-12 h-12 bg-saffron-muted relative overflow-hidden rounded">
                     {p.images[0] ? (
@@ -54,7 +54,7 @@ export default async function AdminProductsPage() {
                   </span>
                 </td>
                 <td className="px-5 py-4">
-                  <span className={`inline-block px-2 py-0.5 text-xs ${p.published ? "bg-emerald-50 text-emerald-700" : "bg-gray-100 text-gray-500"}`}>
+                  <span className={`inline-block px-2 py-0.5 text-xs ${p.published ? "bg-emerald-50 text-emerald-700" : "bg-sabi-black/5 text-sabi-grey"}`}>
                     {p.published ? "Published" : "Draft"}
                   </span>
                 </td>

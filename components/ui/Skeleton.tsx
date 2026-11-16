@@ -1,10 +1,10 @@
 export function Skeleton({ className = "" }: { className?: string }) {
-  return <div className={`animate-pulse bg-gray-100 ${className}`} />;
+  return <div className={`animate-pulse bg-sabi-black/5 ${className}`} />;
 }
 
 export function ProductCardSkeleton() {
   return (
-    <div className="bg-white border border-gray-100 overflow-hidden">
+    <div className="bg-surface border border-sabi-black/10 overflow-hidden">
       <Skeleton className="aspect-square" />
       <div className="p-5 space-y-2">
         <Skeleton className="h-3 w-20" />
@@ -17,7 +17,7 @@ export function ProductCardSkeleton() {
 
 export function PageHeroSkeleton() {
   return (
-    <div className="bg-sabi-black py-24 animate-pulse">
+    <div className="bg-sabi-dark py-24 animate-pulse">
       <div className="container-max px-4 sm:px-6 lg:px-8 space-y-4">
         <div className="h-3 w-24 bg-white/10 rounded" />
         <div className="h-10 w-96 max-w-full bg-white/10 rounded" />

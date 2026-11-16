@@ -11,10 +11,10 @@ export default async function AdminCateringPage() {
         <h1 className="font-serif text-3xl text-sabi-black">Catering Requests</h1>
         <p className="text-sabi-grey text-sm mt-1">{requests.length} total · reply to the customer by email or phone to send a quote</p>
       </div>
-      <div className="bg-white border border-gray-100 overflow-x-auto">
+      <div className="bg-white border border-sabi-black/10 overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-sabi-black/10">
               {["Customer", "Event", "Guests", "Location / Budget", "Notes", "Status"].map((h) => (
                 <th key={h} className="text-left px-5 py-3.5 text-xs tracking-widest uppercase text-sabi-grey font-medium">{h}</th>
               ))}
@@ -22,7 +22,7 @@ export default async function AdminCateringPage() {
           </thead>
           <tbody>
             {requests.map((r: any) => (
-              <tr key={r.id} className="border-b border-gray-50 hover:bg-gray-50 align-top">
+              <tr key={r.id} className="border-b border-gray-50 hover:bg-sabi-black/5 align-top">
                 <td className="px-5 py-4">
                   <p className="font-medium text-sabi-black">{r.name}</p>
                   <a href={`mailto:${r.email}`} className="text-xs text-saffron block">{r.email}</a>

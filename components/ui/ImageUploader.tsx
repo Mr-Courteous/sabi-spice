@@ -54,7 +54,7 @@ export function ImageUploader({ value, onChange }: ImageUploaderProps) {
         <UploadButton label="Upload Image" onOpen={() => {}} />
       )}
       {value && (
-        <div className="mt-3 relative w-40 aspect-[4/3] bg-saffron-muted overflow-hidden border border-gray-200 group">
+        <div className="mt-3 relative w-40 aspect-[4/3] bg-saffron-muted overflow-hidden border border-sabi-black/10 group">
           <img src={value} alt="Preview" className="w-full h-full object-cover" />
           <button
             type="button" onClick={() => onChange("")}
@@ -71,7 +71,7 @@ export function MultiImageUploader({ values, onChange, max = 10 }: MultiImageUpl
     <div>
       <div className="flex flex-wrap gap-3 mb-3">
         {values.map((url, i) => (
-          <div key={i} className="relative w-28 aspect-[4/3] bg-saffron-muted overflow-hidden border border-gray-200 group">
+          <div key={i} className="relative w-28 aspect-[4/3] bg-saffron-muted overflow-hidden border border-sabi-black/10 group">
             <img src={url} alt={`Image ${i + 1}`} className="w-full h-full object-cover" />
             <button
               type="button" onClick={() => onChange(values.filter((_, j) => j !== i))}

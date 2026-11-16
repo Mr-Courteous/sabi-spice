@@ -37,7 +37,7 @@ export default async function AdminDashboard() {
       {/* Stat cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-5 mb-8 lg:mb-10">
         {statCards.map((s) => (
-          <div key={s.label} className="bg-white border border-gray-100 p-3 lg:p-5 hover:shadow-md transition-shadow">
+          <div key={s.label} className="bg-white border border-sabi-black/10 p-3 lg:p-5 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between mb-2 lg:mb-3">
               <p className="text-[10px] lg:text-xs tracking-widest uppercase text-sabi-grey">{s.label}</p>
               <span className="text-base lg:text-xl">{s.icon}</span>
@@ -54,7 +54,7 @@ export default async function AdminDashboard() {
           { title: "Manage Orders", desc: "View and update order statuses", href: "/admin/orders", icon: "📋" },
           { title: "Catering Requests", desc: "Review and reply to event enquiries", href: "/admin/catering", icon: "🍽" },
         ].map((a) => (
-          <a key={a.href} href={a.href} className="bg-white border border-gray-100 p-4 lg:p-6 hover:border-saffron hover:shadow-md transition-all group">
+          <a key={a.href} href={a.href} className="bg-white border border-sabi-black/10 p-4 lg:p-6 hover:border-saffron hover:shadow-md transition-all group">
             <div className="w-8 h-8 lg:w-10 lg:h-10 border border-saffron/30 flex items-center justify-center text-saffron text-base lg:text-xl mb-3 lg:mb-4 group-hover:bg-saffron group-hover:text-white transition-colors">
               {a.icon}
             </div>

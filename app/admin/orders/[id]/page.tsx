@@ -32,7 +32,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
               Placed {new Date(order.createdAt).toLocaleDateString("en-US", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
             </p>
           </div>
-          <span className={`self-start text-xs lg:text-sm font-medium px-3 lg:px-4 py-2 border uppercase tracking-wide ${STATUS_COLORS[order.status] || "bg-gray-50 text-gray-600 border-gray-200"}`}>
+          <span className={`self-start text-xs lg:text-sm font-medium px-3 lg:px-4 py-2 border uppercase tracking-wide ${STATUS_COLORS[order.status] || "bg-sabi-black/5 text-sabi-grey border-sabi-black/10"}`}>
             {order.status}
           </span>
         </div>
@@ -42,7 +42,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
         {/* Left – Items + Payment */}
         <div className="lg:col-span-2 space-y-5">
           {/* Order items */}
-          <div className="bg-white border border-gray-100 p-4 lg:p-6">
+          <div className="bg-white border border-sabi-black/10 p-4 lg:p-6">
             <h2 className="font-serif text-lg lg:text-xl text-sabi-black mb-4 lg:mb-5">Items ({order.items.length})</h2>
             <div className="space-y-4">
               {order.items.map((item) => (
@@ -58,12 +58,12 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                 </div>
               ))}
             </div>
-            <div className="border-t border-gray-100 mt-4 pt-4 space-y-2 text-sm">
+            <div className="border-t border-sabi-black/10 mt-4 pt-4 space-y-2 text-sm">
               <div className="flex justify-between text-sabi-grey">
                 <span>Subtotal</span>
                 <span>{formatPrice(order.total)}</span>
               </div>
-              <div className="flex justify-between font-serif text-lg lg:text-xl font-bold text-sabi-black border-t border-gray-100 pt-3 mt-3">
+              <div className="flex justify-between font-serif text-lg lg:text-xl font-bold text-sabi-black border-t border-sabi-black/10 pt-3 mt-3">
                 <span>Total</span>
                 <span>{formatPrice(order.total)}</span>
               </div>
@@ -71,7 +71,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
           </div>
 
           {/* Payment info */}
-          <div className="bg-white border border-gray-100 p-4 lg:p-6">
+          <div className="bg-white border border-sabi-black/10 p-4 lg:p-6">
             <h2 className="font-serif text-lg lg:text-xl text-sabi-black mb-4 lg:mb-5">Payment</h2>
             <div className="space-y-3 text-sm">
               {[
@@ -92,7 +92,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
         {/* Right – Customer, Address, Status Update */}
         <div className="space-y-5">
           {/* Customer info */}
-          <div className="bg-white border border-gray-100 p-4 lg:p-6">
+          <div className="bg-white border border-sabi-black/10 p-4 lg:p-6">
             <h2 className="font-serif text-lg text-sabi-black mb-4">Customer</h2>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-saffron/15 flex items-center justify-center flex-shrink-0">
@@ -103,14 +103,14 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
                 {order.user && <p className="text-xs text-saffron tracking-wide">Registered Customer</p>}
               </div>
             </div>
-            <div className="space-y-2 text-sm text-sabi-grey border-t border-gray-100 pt-4">
+            <div className="space-y-2 text-sm text-sabi-grey border-t border-sabi-black/10 pt-4">
               <p className="break-all">{order.customerEmail}</p>
               {order.customerPhone && <p>{order.customerPhone}</p>}
             </div>
           </div>
 
           {/* Shipping address */}
-          <div className="bg-white border border-gray-100 p-4 lg:p-6">
+          <div className="bg-white border border-sabi-black/10 p-4 lg:p-6">
             <h2 className="font-serif text-lg text-sabi-black mb-4">Delivery Address</h2>
             <div className="text-sm text-sabi-grey space-y-1">
               <p className="font-medium text-sabi-black">{order.customerName}</p>
@@ -118,7 +118,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
               <p>{[order.city, order.state].filter(Boolean).join(", ")}</p>
             </div>
             {order.notes && (
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="mt-4 pt-4 border-t border-sabi-black/10">
                 <p className="text-xs text-sabi-grey tracking-widest uppercase mb-1">Notes</p>
                 <p className="text-sm text-sabi-grey italic break-words">{order.notes}</p>
               </div>

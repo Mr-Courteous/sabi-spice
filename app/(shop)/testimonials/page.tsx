@@ -35,7 +35,7 @@ export default async function TestimonialsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-24 relative">
+      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-dark py-24 relative">
         <div className="absolute top-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-saffron-light text-xs tracking-[0.4em] uppercase mb-4 font-bold">Social Proof</p>
@@ -69,10 +69,10 @@ export default async function TestimonialsPage() {
           {customers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {customers.map((t) => (
-                <div key={t.id} className="bg-white p-7 border border-gray-100 hover:shadow-md transition-shadow">
+                <div key={t.id} className="bg-surface p-7 border border-sabi-black/10 hover:shadow-md transition-shadow">
                   <Stars rating={t.rating} />
                   <p className="text-sabi-grey text-sm leading-relaxed mt-4 mb-6 italic">"{t.content}"</p>
-                  <div className="flex items-center gap-3 border-t border-gray-100 pt-4">
+                  <div className="flex items-center gap-3 border-t border-sabi-black/10 pt-4">
                     <div className="w-9 h-9 bg-saffron/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-saffron font-serif font-bold">{t.authorName[0]}</span>
                     </div>
@@ -91,10 +91,10 @@ export default async function TestimonialsPage() {
                 { name: "Tunde A.", text: "Finally, efirin and iru that actually smell fresh. My egusi has never tasted better.", rating: 5 },
                 { name: "Grace M.", text: "Sabi Spice catered our office party and the small chops disappeared in minutes.", rating: 5 },
               ].map((t) => (
-                <div key={t.name} className="bg-white p-7 border border-gray-100">
+                <div key={t.name} className="bg-surface p-7 border border-sabi-black/10">
                   <Stars rating={t.rating} />
                   <p className="text-sabi-grey text-sm leading-relaxed mt-4 mb-6 italic">"{t.text}"</p>
-                  <div className="flex items-center gap-3 border-t border-gray-100 pt-4">
+                  <div className="flex items-center gap-3 border-t border-sabi-black/10 pt-4">
                     <div className="w-9 h-9 bg-saffron/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-saffron font-serif font-bold">{t.name[0]}</span>
                     </div>
@@ -111,7 +111,7 @@ export default async function TestimonialsPage() {
       </section>
 
       {/* Trainee reviews */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-surface">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-saffron text-xs tracking-[0.3em] uppercase mb-3">Catering</p>
@@ -122,8 +122,8 @@ export default async function TestimonialsPage() {
           {trainees.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {trainees.map((t) => (
-                <div key={t.id} className="bg-sabi-light p-8 border border-gray-100 flex gap-5">
-                  <div className="w-12 h-12 bg-sabi-black flex items-center justify-center flex-shrink-0 self-start mt-1">
+                <div key={t.id} className="bg-sabi-light p-8 border border-sabi-black/10 flex gap-5">
+                  <div className="w-12 h-12 bg-sabi-dark flex items-center justify-center flex-shrink-0 self-start mt-1">
                     <span className="text-saffron font-serif font-bold text-xl">{t.authorName[0]}</span>
                   </div>
                   <div>
@@ -141,8 +141,8 @@ export default async function TestimonialsPage() {
                 { name: "Ify O.", text: "They handled the food for my mum's 60th and everyone raved about it. Easy to work with from start to finish." },
                 { name: "David K.", text: "We ordered trays for our church event. Fresh, on time and generous portions." },
               ].map((t) => (
-                <div key={t.name} className="bg-sabi-light p-8 border border-gray-100 flex gap-5">
-                  <div className="w-12 h-12 bg-sabi-black flex items-center justify-center flex-shrink-0 self-start mt-1">
+                <div key={t.name} className="bg-sabi-light p-8 border border-sabi-black/10 flex gap-5">
+                  <div className="w-12 h-12 bg-sabi-dark flex items-center justify-center flex-shrink-0 self-start mt-1">
                     <span className="text-saffron font-serif font-bold text-xl">{t.name[0]}</span>
                   </div>
                   <div>
@@ -159,11 +159,11 @@ export default async function TestimonialsPage() {
       </section>
 
       {/* Leave a review CTA */}
-      <section className="section-padding bg-sabi-black">
+      <section className="section-padding bg-sabi-dark">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-saffron text-xs tracking-[0.3em] uppercase mb-4">Share Your Experience</p>
           <h2 className="font-serif text-4xl text-white mb-4">Have Something to Say?</h2>
-          <p className="text-gray-400 max-w-md mx-auto mb-8">We'd love to hear your story. Contact us to share your review or feature your work in our gallery.</p>
+          <p className="text-sabi-grey max-w-md mx-auto mb-8">We'd love to hear your story. Contact us to share your review or feature your work in our gallery.</p>
           <Link href="/contact" className="btn-saffron">Leave a Review</Link>
         </div>
       </section>

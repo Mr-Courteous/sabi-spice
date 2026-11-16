@@ -18,7 +18,7 @@ export default async function AdminCategoriesPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map((cat) => (
-          <div key={cat.id} className="bg-white border border-gray-100 p-6 hover:border-saffron/30 transition-colors">
+          <div key={cat.id} className="bg-white border border-sabi-black/10 p-6 hover:border-saffron/30 transition-colors">
             <h3 className="font-serif text-xl text-sabi-black mb-1">{cat.name}</h3>
             <p className="text-sabi-grey text-sm mb-3">{cat.description || "No description"}</p>
             <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export default async function AdminCategoriesPage() {
           </div>
         ))}
         {categories.length === 0 && (
-          <div className="col-span-full bg-white border border-gray-100 text-center py-16">
+          <div className="col-span-full bg-white border border-sabi-black/10 text-center py-16">
             <p className="text-sabi-grey font-serif text-lg">No categories yet</p>
           </div>
         )}

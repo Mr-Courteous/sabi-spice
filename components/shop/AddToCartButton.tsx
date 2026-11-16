@@ -13,7 +13,7 @@ export default function AddToCartButton({ productId, inStock }: { productId: str
 
   if (isAdmin) {
     return (
-      <p className="text-xs text-sabi-grey border-2 border-sabi-black/10 px-4 py-3 text-center rounded-xl bg-white">
+      <p className="text-xs text-sabi-grey ring-1 ring-sabi-black/10 px-4 py-3 text-center rounded-2xl bg-surface">
         Carting is disabled for admin accounts.
       </p>
     );
@@ -53,7 +53,7 @@ export default function AddToCartButton({ productId, inStock }: { productId: str
     <div className="space-y-4">
       <div className="flex items-center gap-4">
         <label className="text-xs tracking-widest uppercase text-sabi-grey w-20 font-semibold">Quantity</label>
-        <div className="flex items-center border-2 border-sabi-black rounded-xl overflow-hidden bg-white shadow-[2px_2px_0_0_#101840]">
+        <div className="flex items-center rounded-full ring-1 ring-inset ring-sabi-black/15 overflow-hidden bg-surface">
           <button type="button" onClick={() => setQty(Math.max(1, qty - 1))}
             className="w-10 h-10 flex items-center justify-center hover:bg-saffron-muted text-sabi-black text-xl font-bold transition-colors">−</button>
           <span className="w-12 text-center text-sm font-bold text-sabi-black">{qty}</span>
@@ -63,7 +63,7 @@ export default function AddToCartButton({ productId, inStock }: { productId: str
       </div>
       <div className="flex gap-3">
         <button onClick={addToCart} disabled={loading}
-          className={`btn-saffron flex-1 transition-all ${added ? "bg-sabi-leaf border-sabi-black text-white" : ""}`}>
+          className={`btn-saffron flex-1 transition-all ${added ? "bg-sabi-leaf text-white" : ""}`}>
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />

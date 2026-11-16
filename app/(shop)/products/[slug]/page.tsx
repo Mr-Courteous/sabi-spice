@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import AddToCartButton from "@/components/shop/AddToCartButton";
+import ProductCard from "@/components/shop/ProductCard";
+import { catEmoji } from "@/lib/ui";
 
 function absUrl(url: string) {
   if (url.startsWith("http")) return url;
@@ -51,118 +53,71 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
     take: 4,
     include: { category: true },
   });
+  const off = product.comparePrice && product.comparePrice > product.price ? Math.round((1 - product.price / product.comparePrice) * 100) : 0;
+  const stockText = product.stock > 5 ? "In stock" : product.stock > 0 ? `Only ${product.stock} left` : "Sold out";
 
   return (
-    <div>
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="container-max px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-xs text-sabi-grey">
-            <Link href="/" className="hover:text-saffron transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/products" className="hover:text-saffron transition-colors">Shop</Link>
-            <span>/</span>
-            <span className="text-sabi-black">{product.name}</span>
-          </nav>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8">
+      <nav className="flex items-center gap-2 text-xs text-sabi-grey mb-4" aria-label="Breadcrumb">
+        <Link href="/products" className="font-semibold hover:text-sabi-leaf transition-colors">Menu</Link>
+        {product.category && <><span>/</span><Link href={`/products?category=${product.category.slug}`} className="hover:text-sabi-leaf transition-colors">{product.category.name}</Link></>}
+      </nav>
+
+      <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
+        {/* Gallery */}
+        <div className="lg:sticky lg:top-24">
+          <div className="relative aspect-square sm:aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden bg-saffron-muted shadow-soft">
+            {product.images[0]
+              ? <Image src={product.images[0]} alt={product.name} fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+              : <span className="absolute inset-0 grid place-items-center text-8xl">{catEmoji(product.category?.slug)}</span>}
+            {off > 0 && <span className="absolute top-4 left-4 bg-saffron text-[rgb(var(--on-accent))] text-xs font-bold px-3 py-1.5 rounded-full">{off}% off</span>}
+          </div>
+          {product.images.length > 1 && (
+            <div className="grid grid-cols-4 gap-3 mt-3">
+              {product.images.slice(1, 5).map((img, i) => (
+                <div key={i} className="aspect-square relative rounded-2xl overflow-hidden bg-saffron-muted"><Image src={img} alt={`${product.name} ${i + 2}`} fill sizes="12vw" className="object-cover" /></div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Info */}
+        <div>
+          {product.category && <Link href={`/products?category=${product.category.slug}`} className="inline-flex items-center gap-1.5 bg-saffron-muted text-saffron-dark text-xs font-bold px-3 py-1.5 rounded-full mb-4">{catEmoji(product.category.slug)} {product.category.name}</Link>}
+          <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight">{product.name}</h1>
+
+          <div className="flex items-baseline gap-3 mt-4">
+            <span className="font-display font-extrabold text-3xl text-sabi-black">{formatPrice(product.price)}</span>
+            {off > 0 && <span className="text-lg text-sabi-grey line-through">{formatPrice(product.comparePrice!)}</span>}
+          </div>
+
+          <p className="text-sabi-grey leading-relaxed mt-5 max-w-prose">{product.description}</p>
+
+          <div className="flex items-center gap-2 mt-5 text-sm font-semibold">
+            <span className={`w-2.5 h-2.5 rounded-full ${product.stock > 0 ? "bg-sabi-emerald" : "bg-red-500"}`} />
+            <span className="text-sabi-black">{stockText}</span>
+          </div>
+
+          <div className="mt-6 bg-surface rounded-3xl p-5 sm:p-6 ring-1 ring-sabi-black/5 shadow-soft">
+            <AddToCartButton productId={product.id} inStock={product.stock > 0} />
+          </div>
+
+          <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
+            {[["Category", product.category?.name || "—"], ["Prepared by", "Sabi Spice"]].map(([k, v]) => (
+              <div key={k} className="bg-surface rounded-2xl px-4 py-3 ring-1 ring-sabi-black/5">
+                <dt className="text-xs text-sabi-grey">{k}</dt>
+                <dd className="font-bold text-sabi-black mt-0.5">{v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
 
-      {/* Product */}
-      <section className="section-padding bg-white">
-        <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Images */}
-            <div>
-              <div className="aspect-square bg-saffron-muted overflow-hidden relative flex items-center justify-center">
-                {product.images[0] ? (
-                  <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
-                ) : (
-                  <span className="font-serif text-[10rem] text-saffron opacity-10">SS</span>
-                )}
-              </div>
-              {product.images.length > 1 && (
-                <div className="grid grid-cols-4 gap-2 mt-2">
-                  {product.images.slice(1, 5).map((img, i) => (
-                    <div key={i} className="aspect-square bg-saffron-muted relative overflow-hidden cursor-pointer border-2 border-transparent hover:border-saffron transition-colors">
-                      <Image src={img} alt={`${product.name} ${i + 2}`} fill className="object-cover" />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Info */}
-            <div className="flex flex-col">
-              {product.category && (
-                <p className="text-saffron text-xs tracking-[0.3em] uppercase mb-3">{product.category.name}</p>
-              )}
-              <h1 className="font-serif text-4xl lg:text-5xl text-sabi-black leading-tight mb-5">{product.name}</h1>
-
-              <div className="flex items-center gap-3 mb-6">
-                <span className="font-serif text-3xl text-sabi-black font-bold">{formatPrice(product.price)}</span>
-                {product.comparePrice && (
-                  <span className="text-lg text-sabi-grey line-through">{formatPrice(product.comparePrice)}</span>
-                )}
-                {product.comparePrice && (
-                  <span className="bg-saffron/15 text-saffron-dark text-xs font-bold px-2 py-1 uppercase">
-                    Save {formatPrice(product.comparePrice - product.price)}
-                  </span>
-                )}
-              </div>
-
-              <p className="text-sabi-grey leading-relaxed mb-8">{product.description}</p>
-
-              {/* Stock */}
-              <div className="flex items-center gap-2 mb-8">
-                <div className={`w-2 h-2 rounded-full ${product.stock > 0 ? "bg-emerald-500" : "bg-red-500"}`} />
-                <span className="text-sm text-sabi-grey">
-                  {product.stock > 5 ? "In Stock" : product.stock > 0 ? `Only ${product.stock} left` : "Out of Stock"}
-                </span>
-              </div>
-
-              <AddToCartButton productId={product.id} inStock={product.stock > 0} />
-
-              {/* Meta */}
-              <div className="border-t border-gray-100 mt-8 pt-8 space-y-3">
-                {[
-                  ["Category", product.category?.name || "—"],
-                  ["Availability", product.stock > 0 ? "In Stock" : "Out of Stock"],
-                  ["Prepared by", "Sabi Spice"],
-                  ["Ships from", "United States"],
-                ].map(([label, value]) => (
-                  <div key={label} className="flex gap-4 text-sm">
-                    <span className="text-sabi-grey w-28 flex-shrink-0">{label}</span>
-                    <span className="text-sabi-black font-medium">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related products */}
       {related.length > 0 && (
-        <section className="section-padding bg-sabi-light">
-          <div className="container-max px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl text-sabi-black mb-8">You Might Also Like</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {related.map((p) => (
-                <Link key={p.id} href={`/products/${p.slug}`} className="card-product group">
-                  <div className="aspect-square bg-saffron-muted overflow-hidden relative flex items-center justify-center">
-                    {p.images[0] ? (
-                      <Image src={p.images[0]} alt={p.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                    ) : (
-                      <span className="font-serif text-5xl text-saffron opacity-15">SS</span>
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-serif text-base text-sabi-black group-hover:text-saffron transition-colors">{p.name}</h3>
-                    <p className="font-semibold text-sm mt-2">{formatPrice(p.price)}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <section className="pt-14 pb-4">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl mb-5">You might also like</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+            {related.map((p) => <ProductCard key={p.id} p={p} />)}
           </div>
         </section>
       )}

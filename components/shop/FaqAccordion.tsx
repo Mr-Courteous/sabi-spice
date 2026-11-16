@@ -20,7 +20,7 @@ export default function FaqAccordion({ faqs }: { faqs: FaqCategory[] }) {
               const id = `${section.category}-${item.q}`;
               const isOpen = open === id;
               return (
-                <div key={id} className="bg-white border border-gray-100 overflow-hidden">
+                <div key={id} className="bg-surface border border-sabi-black/10 overflow-hidden">
                   <button
                     onClick={() => setOpen(isOpen ? null : id)}
                     className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-saffron/5 transition-colors"

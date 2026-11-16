@@ -27,7 +27,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
     <div className="flex flex-col h-full">
       <div className="p-5 border-b border-white/5 flex items-center justify-between">
         <Logo variant="light" size="sm" />
-        <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-white text-lg leading-none">&times;</button>
+        <button onClick={onClose} className="lg:hidden text-sabi-grey hover:text-white text-lg leading-none">&times;</button>
       </div>
       <nav className="flex-1 py-4 overflow-y-auto">
         {navItems.map((item) => {
@@ -37,7 +37,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
               className={`flex items-center gap-3 px-5 py-3 text-sm transition-colors duration-150 ${
                 isActive
                   ? "bg-saffron/15 text-saffron border-r-2 border-saffron"
-                  : "text-gray-400 hover:bg-white/5 hover:text-white"
+                  : "text-sabi-grey hover:bg-white/5 hover:text-white"
               }`}
             >
               <span className="text-base w-5 text-center">{item.icon}</span>
@@ -47,7 +47,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
         })}
       </nav>
       <div className="p-5 border-t border-white/5">
-        <Link href="/" onClick={onClose} className="text-xs text-gray-600 hover:text-saffron transition-colors flex items-center gap-2">
+        <Link href="/" onClick={onClose} className="text-xs text-sabi-grey hover:text-saffron transition-colors flex items-center gap-2">
           <span>←</span> View Store
         </Link>
       </div>

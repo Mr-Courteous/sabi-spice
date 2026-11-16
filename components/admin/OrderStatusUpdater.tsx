@@ -44,7 +44,7 @@ export default function OrderStatusUpdater({ orderId, currentStatus }: { orderId
   }
 
   return (
-    <div className="bg-sabi-black p-6">
+    <div className="bg-sabi-dark p-6">
       <h2 className="font-serif text-lg text-white mb-4">Update Order Status</h2>
       <div className="space-y-2 mb-5">
         {STATUSES.map((s) => (
@@ -60,7 +60,7 @@ export default function OrderStatusUpdater({ orderId, currentStatus }: { orderId
               onChange={() => setStatus(s)}
               className="accent-saffron"
             />
-            <span className={`text-sm ${status === s ? "text-saffron font-medium" : "text-gray-400"}`}>
+            <span className={`text-sm ${status === s ? "text-saffron font-medium" : "text-sabi-grey"}`}>
               {STATUS_LABELS[s]}
             </span>
           </label>
@@ -75,7 +75,7 @@ export default function OrderStatusUpdater({ orderId, currentStatus }: { orderId
           className="accent-saffron"
         />
         <span className="text-sm text-gray-300">
-          Email customer about this update <span className="text-gray-500">(optional)</span>
+          Email customer about this update <span className="text-sabi-grey">(optional)</span>
         </span>
       </label>
 

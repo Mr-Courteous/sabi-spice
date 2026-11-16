@@ -13,10 +13,10 @@ export default async function AdminBlogPage() {
         </div>
         <Link href="/admin/blog/new" className="btn-saffron">+ New Post</Link>
       </div>
-      <div className="bg-white border border-gray-100">
+      <div className="bg-white border border-sabi-black/10">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-sabi-black/10">
               {["Title", "Category", "Status", "Date", "Actions"].map((h) => (
                 <th key={h} className="text-left px-5 py-3.5 text-xs tracking-widests uppercase text-sabi-grey font-medium">{h}</th>
               ))}
@@ -24,11 +24,11 @@ export default async function AdminBlogPage() {
           </thead>
           <tbody>
             {posts.map((p) => (
-              <tr key={p.id} className="border-b border-gray-50 hover:bg-gray-50">
+              <tr key={p.id} className="border-b border-gray-50 hover:bg-sabi-black/5">
                 <td className="px-5 py-4 font-medium text-sabi-black">{p.title}</td>
                 <td className="px-5 py-4 text-sabi-grey">{p.category || "—"}</td>
                 <td className="px-5 py-4">
-                  <span className={`px-2 py-1 text-xs ${p.published ? "bg-emerald-50 text-emerald-700" : "bg-gray-100 text-gray-500"}`}>
+                  <span className={`px-2 py-1 text-xs ${p.published ? "bg-emerald-50 text-emerald-700" : "bg-sabi-black/5 text-sabi-grey"}`}>
                     {p.published ? "Published" : "Draft"}
                   </span>
                 </td>

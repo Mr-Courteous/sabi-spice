@@ -27,7 +27,7 @@ export default async function MyOrdersPage() {
 
   return (
     <div>
-      <section className="bg-sabi-black py-20 relative">
+      <section className="bg-sabi-dark py-20 relative">
         <div className="absolute top-0 left-0 right-0 h-0.5 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-4">
@@ -35,14 +35,14 @@ export default async function MyOrdersPage() {
             <p className="text-saffron text-xs tracking-[0.4em] uppercase">Account</p>
           </div>
           <h1 className="font-serif text-4xl text-white">My Orders</h1>
-          <p className="text-gray-400 mt-2">Welcome back, {session.user?.name?.split(" ")[0]}.</p>
+          <p className="text-sabi-grey mt-2">Welcome back, {session.user?.name?.split(" ")[0]}.</p>
         </div>
       </section>
 
       <section className="section-padding bg-sabi-light">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           {orders.length === 0 ? (
-            <div className="text-center py-20 bg-white border border-gray-100">
+            <div className="text-center py-20 bg-surface border border-sabi-black/10">
               <span className="font-serif text-8xl text-saffron opacity-10">SS</span>
               <h2 className="font-serif text-3xl text-sabi-black mt-6 mb-3">No orders yet</h2>
               <p className="text-sabi-grey mb-8">Your order history will appear here.</p>
@@ -51,9 +51,9 @@ export default async function MyOrdersPage() {
           ) : (
             <div className="space-y-5">
               {orders.map((order) => (
-                <div key={order.id} className="bg-white border border-gray-100 overflow-hidden">
+                <div key={order.id} className="bg-surface border border-sabi-black/10 overflow-hidden">
                   {/* Order header */}
-                  <div className="flex flex-wrap items-center justify-between px-6 py-4 border-b border-gray-100 gap-3">
+                  <div className="flex flex-wrap items-center justify-between px-6 py-4 border-b border-sabi-black/10 gap-3">
                     <div className="flex items-center gap-6">
                       <div>
                         <p className="text-xs text-sabi-grey tracking-widests uppercase mb-0.5">Order</p>
@@ -70,7 +70,7 @@ export default async function MyOrdersPage() {
                         <p className="font-semibold text-sabi-black">{formatPrice(order.total)}</p>
                       </div>
                     </div>
-                    <span className={`text-xs font-medium px-3 py-1.5 border uppercase tracking-wide ${STATUS_COLORS[order.status] || "bg-gray-50 text-gray-600 border-gray-200"}`}>
+                    <span className={`text-xs font-medium px-3 py-1.5 border uppercase tracking-wide ${STATUS_COLORS[order.status] || "bg-sabi-black/5 text-sabi-grey border-sabi-black/10"}`}>
                       {order.status}
                     </span>
                   </div>
@@ -92,7 +92,7 @@ export default async function MyOrdersPage() {
                   </div>
 
                   {/* Footer */}
-                  <div className="px-6 py-3 bg-gray-50 flex items-center justify-between gap-3 text-sm">
+                  <div className="px-6 py-3 bg-sabi-black/5 flex items-center justify-between gap-3 text-sm">
                     <p className="text-sabi-grey text-xs">
                       Delivering to {order.city}, {order.state}
                     </p>

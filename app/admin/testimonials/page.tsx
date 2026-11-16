@@ -11,7 +11,7 @@ export default async function AdminTestimonialsPage() {
       </div>
       <div className="space-y-4">
         {testimonials.map((t) => (
-          <div key={t.id} className="bg-white border border-gray-100 p-6 flex gap-5 items-start">
+          <div key={t.id} className="bg-white border border-sabi-black/10 p-6 flex gap-5 items-start">
             <div className="w-10 h-10 bg-saffron/20 flex items-center justify-center flex-shrink-0">
               <span className="text-saffron font-serif font-bold">{t.authorName[0]}</span>
             </div>
@@ -36,7 +36,7 @@ export default async function AdminTestimonialsPage() {
           </div>
         ))}
         {testimonials.length === 0 && (
-          <div className="bg-white border border-gray-100 text-center py-16 text-sabi-grey">
+          <div className="bg-white border border-sabi-black/10 text-center py-16 text-sabi-grey">
             <p className="font-serif text-lg">No testimonials yet</p>
           </div>
         )}

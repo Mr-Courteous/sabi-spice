@@ -42,7 +42,7 @@ export default async function AdminOrdersPage() {
         {["PENDING","PAID","PROCESSING","SHIPPED","DELIVERED"].map((s) => {
           const count = orders.filter((o) => o.status === s).length;
           return (
-            <div key={s} className={`p-3 lg:p-4 border text-center ${STATUS_COLORS[s] || "bg-gray-50 text-gray-600"} border-current/20`}>
+            <div key={s} className={`p-3 lg:p-4 border text-center ${STATUS_COLORS[s] || "bg-sabi-black/5 text-sabi-grey"} border-current/20`}>
               <p className="font-serif text-lg lg:text-2xl font-bold">{count}</p>
               <p className="text-[10px] lg:text-xs uppercase tracking-widest mt-0.5 lg:mt-1 opacity-70">{s}</p>
             </div>
@@ -51,10 +51,10 @@ export default async function AdminOrdersPage() {
       </div>
 
       {/* Desktop table */}
-      <div className="bg-white border border-gray-100 overflow-x-auto hidden sm:block">
+      <div className="bg-white border border-sabi-black/10 overflow-x-auto hidden sm:block">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-sabi-black/10">
               {["Order #", "Customer", "Items", "Total", "Status", "Date", ""].map((h) => (
                 <th key={h} className="text-left px-5 py-3.5 text-xs tracking-widest uppercase text-sabi-grey font-medium whitespace-nowrap">{h}</th>
               ))}
@@ -62,7 +62,7 @@ export default async function AdminOrdersPage() {
           </thead>
           <tbody>
             {orders.map((o) => (
-              <tr key={o.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+              <tr key={o.id} className="border-b border-gray-50 hover:bg-sabi-black/5 transition-colors">
                 <td className="px-5 py-4 font-mono text-xs font-bold text-saffron">{o.orderNumber}</td>
                 <td className="px-5 py-4">
                   <p className="font-medium text-sabi-black">{o.customerName}</p>
@@ -71,7 +71,7 @@ export default async function AdminOrdersPage() {
                 <td className="px-5 py-4 text-sabi-grey">{o.items.length}</td>
                 <td className="px-5 py-4 font-semibold text-sabi-black">{formatPrice(o.total)}</td>
                 <td className="px-5 py-4">
-                  <span className={`px-2 py-1 text-xs font-medium rounded-sm ${STATUS_BG[o.status] || "bg-gray-100 text-gray-600"}`}>
+                  <span className={`px-2 py-1 text-xs font-medium rounded-sm ${STATUS_BG[o.status] || "bg-sabi-black/5 text-sabi-grey"}`}>
                     {o.status}
                   </span>
                 </td>
@@ -90,17 +90,17 @@ export default async function AdminOrdersPage() {
       {/* Mobile cards */}
       <div className="sm:hidden space-y-3">
         {orders.length === 0 ? (
-          <div className="text-center py-16 text-sabi-grey bg-white border border-gray-100">
+          <div className="text-center py-16 text-sabi-grey bg-white border border-sabi-black/10">
             <span className="font-serif text-5xl text-saffron opacity-10">SS</span>
             <p className="font-serif text-lg mt-4">No orders yet</p>
             <p className="text-sm mt-1">Orders appear here when customers complete checkout.</p>
           </div>
         ) : (
           orders.map((o) => (
-            <Link key={o.id} href={`/admin/orders/${o.id}`} className="block bg-white border border-gray-100 p-4 hover:border-saffron/40 transition-colors">
+            <Link key={o.id} href={`/admin/orders/${o.id}`} className="block bg-white border border-sabi-black/10 p-4 hover:border-saffron/40 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <span className="font-mono text-xs font-bold text-saffron">{o.orderNumber}</span>
-                <span className={`px-2 py-0.5 text-[10px] font-medium rounded-sm ${STATUS_BG[o.status] || "bg-gray-100 text-gray-600"}`}>
+                <span className={`px-2 py-0.5 text-[10px] font-medium rounded-sm ${STATUS_BG[o.status] || "bg-sabi-black/5 text-sabi-grey"}`}>
                   {o.status}
                 </span>
               </div>

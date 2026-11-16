@@ -20,7 +20,7 @@ export default async function GalleryPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-24 relative">
+      <section className="bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-dark py-24 relative">
         <div className="absolute top-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-6">
@@ -45,7 +45,7 @@ export default async function GalleryPage() {
                 key={cat}
                 className={`whitespace-nowrap px-4 py-1.5 text-xs tracking-widest uppercase font-sans font-bold rounded-full transition-all ${
                   i === 0
-                    ? "bg-sabi-black text-white shadow-[2px_2px_0_0_#101840]"
+                    ? "bg-sabi-dark text-white shadow-soft"
                     : "text-sabi-grey hover:text-saffron-dark hover:bg-saffron-muted"
                 }`}
               >
@@ -62,7 +62,7 @@ export default async function GalleryPage() {
           {items.length > 0 ? (
             <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
               {items.map((item) => (
-                <div key={item.id} className="break-inside-avoid bg-white overflow-hidden group cursor-pointer border border-gray-100 hover:shadow-lg transition-all">
+                <div key={item.id} className="break-inside-avoid bg-surface overflow-hidden group cursor-pointer border border-sabi-black/10 hover:shadow-lg transition-all">
                   <div className="aspect-square bg-saffron-muted relative overflow-hidden">
                     {item.image ? (
                       <Image src={item.image} alt={item.title || "Gallery image"} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -71,7 +71,7 @@ export default async function GalleryPage() {
                         <span className="font-serif text-6xl text-saffron opacity-20">SS</span>
                       </div>
                     )}
-                    <div className="absolute inset-0 bg-sabi-black/0 group-hover:bg-sabi-black/40 transition-all duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-sabi-dark/0 group-hover:bg-sabi-dark/40 transition-all duration-300 flex items-center justify-center">
                       <span className="text-white text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">View</span>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ export default async function GalleryPage() {
               <p className="text-center text-sabi-grey text-sm mb-8 italic">Gallery items will appear here once added from the admin panel.</p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {Array.from({ length: 8 }).map((_, i) => (
-                  <div key={i} className="aspect-square bg-white border border-gray-100 flex items-center justify-center group hover:border-saffron/40 transition-colors">
+                  <div key={i} className="aspect-square bg-surface border border-sabi-black/10 flex items-center justify-center group hover:border-saffron/40 transition-colors">
                     <span className="font-serif text-5xl text-saffron opacity-10 group-hover:opacity-20 transition-opacity">SS</span>
                   </div>
                 ))}
@@ -101,7 +101,7 @@ export default async function GalleryPage() {
       </section>
 
       {/* Share your event */}
-      <section className="section-padding bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black text-white">
+      <section className="section-padding bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-dark text-white">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-saffron-light text-xs tracking-[0.3em] uppercase mb-4 font-bold">Have photos to share?</p>
           <h2 className="font-serif text-4xl lg:text-5xl text-white mb-4 font-extrabold">Share Your Event</h2>

@@ -47,7 +47,7 @@ export default function BlogPostForm({ initialData }: { initialData?: any }) {
     <form onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-5">
-          <div className="bg-white border border-gray-100 p-6 space-y-5">
+          <div className="bg-white border border-sabi-black/10 p-6 space-y-5">
             <div>
               <label className="block text-xs tracking-widest uppercase text-sabi-grey mb-2">Title *</label>
               <input value={form.title} onChange={(e) => set("title", e.target.value)} required className="input-field text-lg" placeholder="Article title..." />
@@ -63,7 +63,7 @@ export default function BlogPostForm({ initialData }: { initialData?: any }) {
           </div>
         </div>
         <div className="space-y-5">
-          <div className="bg-white border border-gray-100 p-6 space-y-4">
+          <div className="bg-white border border-sabi-black/10 p-6 space-y-4">
             <h3 className="font-serif text-lg text-sabi-black">Settings</h3>
             <div>
               <label className="block text-xs tracking-widests uppercase text-sabi-grey mb-2">Category</label>

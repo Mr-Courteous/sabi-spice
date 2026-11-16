@@ -51,10 +51,10 @@ export default function CartPageClient() {
 
   if (items.length === 0) return (
     <div className="text-center py-24 max-w-md mx-auto">
-      <span className="font-serif text-8xl text-saffron opacity-10">SS</span>
-      <h2 className="font-serif text-3xl text-sabi-black mt-6 mb-3">Your cart is empty</h2>
-      <p className="text-sabi-grey mb-8">Looks like you haven't added anything yet.</p>
-      <Link href="/products" className="btn-saffron">Continue Shopping</Link>
+      <span className="text-7xl block">🍽</span>
+      <h2 className="font-serif text-3xl text-sabi-black mt-6 mb-3">Your order is empty</h2>
+      <p className="text-sabi-grey mb-8">Pick something tasty from the menu and it will show up here.</p>
+      <Link href="/products" className="btn-saffron">Browse the menu</Link>
     </div>
   );
 
@@ -63,8 +63,8 @@ export default function CartPageClient() {
       {/* Items */}
       <div className="lg:col-span-2 space-y-4">
         {items.map((item) => (
-          <div key={item.id} className="bg-white border border-gray-100 p-5 flex gap-5">
-            <div className="w-20 h-20 bg-saffron-muted flex-shrink-0 relative overflow-hidden">
+          <div key={item.id} className="bg-surface rounded-3xl ring-1 ring-sabi-black/5 shadow-soft p-4 sm:p-5 flex gap-4 sm:gap-5">
+            <div className="w-20 h-20 rounded-2xl bg-saffron-muted flex-shrink-0 relative overflow-hidden">
               {item.product.images[0] ? (
                 <Image src={item.product.images[0]} alt={item.product.name} fill className="object-cover" />
               ) : (
@@ -77,12 +77,12 @@ export default function CartPageClient() {
               <Link href={`/products/${item.product.slug}`} className="font-serif text-lg text-sabi-black hover:text-saffron transition-colors line-clamp-1">{item.product.name}</Link>
               <p className="font-semibold text-sabi-black mt-1">{formatPrice(item.product.price)}</p>
               <div className="flex items-center gap-4 mt-3">
-                <div className="flex items-center border border-gray-200">
-                  <button onClick={() => updateQty(item.id, item.quantity - 1)} className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 text-sm">−</button>
+                <div className="flex items-center rounded-full border border-sabi-black/15 overflow-hidden">
+                  <button onClick={() => updateQty(item.id, item.quantity - 1)} className="w-8 h-8 flex items-center justify-center hover:bg-saffron-muted text-sm">−</button>
                   <span className="w-8 text-center text-sm">{item.quantity}</span>
-                  <button onClick={() => updateQty(item.id, item.quantity + 1)} className="w-8 h-8 flex items-center justify-center hover:bg-gray-50 text-sm">+</button>
+                  <button onClick={() => updateQty(item.id, item.quantity + 1)} className="w-8 h-8 flex items-center justify-center hover:bg-saffron-muted text-sm">+</button>
                 </div>
-                <button onClick={() => removeItem(item.id)} className="text-xs text-red-500 hover:underline">Remove</button>
+                <button onClick={() => removeItem(item.id)} className="text-xs font-semibold text-saffron-dark hover:underline">Remove</button>
               </div>
             </div>
             <div className="text-right flex-shrink-0">
@@ -90,14 +90,14 @@ export default function CartPageClient() {
             </div>
           </div>
         ))}
-        <Link href="/products" className="text-sm text-saffron hover:underline flex items-center gap-2 mt-2">← Continue Shopping</Link>
+        <Link href="/products" className="text-sm font-semibold text-sabi-leaf hover:underline flex items-center gap-2 mt-2">Add more dishes</Link>
       </div>
 
       {/* Summary */}
       <div>
-        <div className="bg-white border border-gray-100 p-7 sticky top-32">
+        <div className="bg-surface rounded-3xl ring-1 ring-sabi-black/5 shadow-soft p-6 sm:p-7 sticky top-28">
           <h3 className="font-serif text-xl text-sabi-black mb-6">Order Summary</h3>
-          <div className="space-y-3 text-sm border-b border-gray-100 pb-5 mb-5">
+          <div className="space-y-3 text-sm border-b border-sabi-black/10 pb-5 mb-5">
             <div className="flex justify-between text-sabi-grey">
               <span>Subtotal ({items.reduce((s, i) => s + i.quantity, 0)} items)</span>
               <span>{formatPrice(subtotal)}</span>
@@ -111,7 +111,7 @@ export default function CartPageClient() {
             <span>Total</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <Link href="/checkout" className="btn-saffron w-full text-center">Proceed to Checkout</Link>
+          <Link href="/checkout" className="btn-saffron w-full text-center">Checkout</Link>
           <p className="text-xs text-sabi-grey text-center mt-4">Secure checkout via Stripe</p>
         </div>
       </div>

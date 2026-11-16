@@ -15,7 +15,7 @@ const PACKAGES = [
 export default function CateringPage({ searchParams }: { searchParams: { package?: string } }) {
   return (
     <div>
-      <section className="relative bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-black py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-sabi-leaf via-sabi-charcoal to-sabi-dark py-24 overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-1 saffron-shimmer" />
         <div className="container-max px-4 sm:px-6 lg:px-8 relative">
           <p className="text-saffron-light text-xs tracking-[0.4em] uppercase mb-5 font-bold">Events &amp; Catering</p>
@@ -44,7 +44,7 @@ export default function CateringPage({ searchParams }: { searchParams: { package
           <div id="quote" className="grid grid-cols-1 lg:grid-cols-3 gap-10 scroll-mt-32">
             <div className="lg:col-span-2"><CateringForm defaultPackage={searchParams.package} /></div>
             <div className="space-y-5">
-              <div className="bg-gradient-to-br from-sabi-leaf to-sabi-charcoal border-2 border-sabi-black rounded-2xl p-7 shadow-[4px_4px_0_0_#101840] text-white">
+              <div className="bg-gradient-to-br from-sabi-leaf to-sabi-charcoal border border-sabi-black/10 rounded-2xl p-7 shadow-soft text-white">
                 <h3 className="font-serif text-xl text-white mb-5 font-bold">How it works</h3>
                 <ol className="space-y-4 text-sm text-white/85">
                   {["Send us your event details.", "We reply with a quote and menu ideas.", "Confirm your order and we cook it fresh.", "Pick up or have it delivered."].map((s, i) => (
@@ -52,7 +52,7 @@ export default function CateringPage({ searchParams }: { searchParams: { package
                   ))}
                 </ol>
               </div>
-              <div className="bg-white border-2 border-sabi-black rounded-2xl p-7 shadow-[4px_4px_0_0_#101840]">
+              <div className="bg-surface border border-sabi-black/10 rounded-2xl p-7 shadow-soft">
                 <h3 className="font-semibold text-sabi-black mb-2">Just want a box?</h3>
                 <p className="text-sabi-grey text-sm mb-4">Faaji boxes and spices can be ordered straight from the shop.</p>
                 <a href="/products" className="text-saffron-dark font-bold text-sm hover:underline">Shop now →</a>

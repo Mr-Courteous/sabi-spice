@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Icon from "@/components/ui/Icon";
 
 export default function QuickAdd({ productId, inStock = true }: { productId: string; inStock?: boolean }) {
   const [busy, setBusy] = useState(false);
@@ -17,8 +18,8 @@ export default function QuickAdd({ productId, inStock = true }: { productId: str
   }
   return (
     <button onClick={add} disabled={busy || !inStock} aria-label="Add to order" title={inStock ? "Add to order" : "Sold out"}
-      className="w-9 h-9 flex-shrink-0 rounded-full bg-saffron text-white hover:bg-saffron-dark border-2 border-sabi-black font-bold text-lg leading-none shadow-[2px_2px_0_0_#101840] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none disabled:opacity-40 transition-all flex items-center justify-center">
-      {busy ? "…" : "+"}
+      className="w-10 h-10 flex-shrink-0 rounded-full bg-[#F6EEE2] text-[#0B0907] shadow-lift grid place-items-center hover:bg-saffron hover:text-[rgb(var(--on-accent))] active:scale-90 disabled:opacity-40 disabled:hover:bg-[#F6EEE2] disabled:hover:text-[#0B0907] transition-all">
+      {busy ? <span className="w-4 h-4 rounded-full border-2 border-sabi-black/20 border-t-saffron animate-spin" /> : <Icon name="plus" className="w-5 h-5" />}
     </button>
   );
 }
